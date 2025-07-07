@@ -1,4 +1,6 @@
-package com.trabalho_oo;
+package com.trabalho_oo.Validadores;
+
+import com.trabalho_oo.Aluno;
 
 public class ValidadorSimples implements ValidadorPreRequisito {
     private Disciplina preRequisito;

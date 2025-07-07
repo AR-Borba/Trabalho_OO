@@ -1,17 +1,19 @@
-package com.trabalho_oo;
+package com.trabalho_oo.Validadores;
 
 import java.util.Arrays;
 import java.util.List;
 
-public class ValidadorLogicoAND implements ValidadorPreRequisito {
+import com.trabalho_oo.Aluno;
+
+public class ValidadorLogicoOR implements ValidadorPreRequisito {
     private List<ValidadorPreRequisito> validadores;
 
-    public ValidadorLogicoAND(ValidadorPreRequisito... validadores) {
+    public ValidadorLogicoOR(ValidadorPreRequisito... validadores) {
         this.validadores = Arrays.asList(validadores);
     }
 
     @Override
     public boolean validar(Aluno aluno, Disciplina disciplina) {
-        return true;
+        return false;
     }
 }
