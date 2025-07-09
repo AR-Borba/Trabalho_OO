@@ -7,7 +7,7 @@ import com.trabalho_oo.Models.CodigoDisciplina;
 
 public abstract class Disciplina {
     private String nomeDisciplina;
-    private String codigo;              // criar um tipo código?
+    private CodigoDisciplina codigo;              // criar um tipo código?
     private int cargaHorariaSemanal;
     List<CodigoDisciplina> preRequisitos = new ArrayList<>(); 
     List<CodigoDisciplina> coRequisitos = new ArrayList<>();
@@ -16,7 +16,7 @@ public abstract class Disciplina {
     
     }
 
-    public Disciplina(String nomeDisciplina, String codigo, int cargaHorariaSemanal, ArrayList<CodigoDisciplina> preRequisitos, ArrayList<CodigoDisciplina> coRequisitos){
+    public Disciplina(String nomeDisciplina, CodigoDisciplina codigo, int cargaHorariaSemanal, ArrayList<CodigoDisciplina> preRequisitos, ArrayList<CodigoDisciplina> coRequisitos){
         this.nomeDisciplina = nomeDisciplina;
         this.codigo = codigo;
         this.cargaHorariaSemanal = cargaHorariaSemanal;
