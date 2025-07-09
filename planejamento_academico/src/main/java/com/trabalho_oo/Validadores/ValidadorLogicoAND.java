@@ -4,6 +4,7 @@ import java.util.Arrays;
 import java.util.List;
 
 import com.trabalho_oo.Aluno;
+import com.trabalho_oo.Disciplinas.Disciplina;
 
 public class ValidadorLogicoAND implements ValidadorPreRequisito {
     private List<ValidadorPreRequisito> validadores;

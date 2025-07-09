@@ -4,6 +4,7 @@ import java.util.Arrays;
 import java.util.List;
 
 import com.trabalho_oo.Aluno;
+import com.trabalho_oo.Disciplinas.Disciplina;
 
 public class ValidadorLogicoOR implements ValidadorPreRequisito {
     private List<ValidadorPreRequisito> validadores;
@@ -14,6 +15,6 @@ public class ValidadorLogicoOR implements ValidadorPreRequisito {
 
     @Override
     public boolean validar(Aluno aluno, Disciplina disciplina) {
-        return false;
+        
     }
 }

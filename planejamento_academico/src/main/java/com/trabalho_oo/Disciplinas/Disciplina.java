@@ -10,12 +10,13 @@ public abstract class Disciplina {
     private CodigoDisciplina codigo;              // criar um tipo código?
     private int cargaHorariaSemanal;
     List<CodigoDisciplina> preRequisitos = new ArrayList<>(); 
-    List<CodigoDisciplina> coRequisitos = new ArrayList<>();
-
-    public Disciplina(){
     
+    List<CodigoDisciplina> coRequisitos = new ArrayList<>();
+    
+    public Disciplina(){
+        
     }
-
+    
     public Disciplina(String nomeDisciplina, CodigoDisciplina codigo, int cargaHorariaSemanal, ArrayList<CodigoDisciplina> preRequisitos, ArrayList<CodigoDisciplina> coRequisitos){
         this.nomeDisciplina = nomeDisciplina;
         this.codigo = codigo;
@@ -26,5 +27,9 @@ public abstract class Disciplina {
     
     private void setNome(String nome){
         nomeDisciplina = nome;
+    }
+    
+    public List<CodigoDisciplina> getPreRequisitos() {
+        return preRequisitos;
     }
 }
