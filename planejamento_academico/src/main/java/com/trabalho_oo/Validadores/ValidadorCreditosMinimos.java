@@ -4,7 +4,8 @@ import com.trabalho_oo.entities.Aluno;
 import com.trabalho_oo.entities.Disciplinas.Disciplina;
 
 public class ValidadorCreditosMinimos implements ValidadorPreRequisito{
-     private int creditosMinimos;
+    private static final double NOTA_MINIMA = 60.0;
+    private int creditosMinimos;
 
     public ValidadorCreditosMinimos(int creditosMinimos) {
         this.creditosMinimos = creditosMinimos;
@@ -12,6 +13,12 @@ public class ValidadorCreditosMinimos implements ValidadorPreRequisito{
 
     @Override
     public boolean validar(Aluno aluno, Disciplina disciplina) {
-        return true;
+        int creditosAcumulados = 0;
+        for (Disciplina cursada : aluno.getHistorico().keySet()) {
+            if (aluno.getHistorico().get(cursada) >= NOTA_MINIMA) {
+                creditosAcumulados += cursada.getCargaHorariaSemanal();
+            }
+        }
+        return creditosAcumulados >= this.creditosMinimos;
     }
 }
