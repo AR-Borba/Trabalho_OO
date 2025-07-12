@@ -53,7 +53,7 @@ public class Aluno {
         return false;
     }
 
-    private void adicionarAoHistorico(Disciplina d, double nota) {
+    public void adicionarAoHistorico(Disciplina d, double nota) {
         if(historico.get(d) == null || historico.get(d) < nota)
             historico.put(d, nota);
     }

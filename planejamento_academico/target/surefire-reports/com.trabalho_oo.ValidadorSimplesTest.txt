@@ -1,19 +1,15 @@
 -------------------------------------------------------------------------------
 Test set: com.trabalho_oo.ValidadorSimplesTest
 -------------------------------------------------------------------------------
-Tests run: 2, Failures: 0, Errors: 2, Skipped: 0, Time elapsed: 0.059 s <<< FAILURE! -- in com.trabalho_oo.ValidadorSimplesTest
-com.trabalho_oo.ValidadorSimplesTest.deveRetornarTrueSePreRequisitoFoiAprovado -- Time elapsed: 0.023 s <<< ERROR!
-java.lang.NullPointerException: Cannot invoke "java.util.Map.get(Object)" because "this.historico" is null
-	at com.trabalho_oo.entities.Aluno.adicionarAoHistorico(Aluno.java:51)
-	at com.trabalho_oo.ValidadorSimplesTest.setUp(ValidadorSimplesTest.java:35)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
-	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
-	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
-
-com.trabalho_oo.ValidadorSimplesTest.deveRetornarFalseSePreRequisitoFoiReprovado -- Time elapsed: 0.003 s <<< ERROR!
-java.lang.NullPointerException: Cannot invoke "java.util.Map.get(Object)" because "this.historico" is null
-	at com.trabalho_oo.entities.Aluno.adicionarAoHistorico(Aluno.java:51)
-	at com.trabalho_oo.ValidadorSimplesTest.setUp(ValidadorSimplesTest.java:35)
+Tests run: 3, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 0.062 s <<< FAILURE! -- in com.trabalho_oo.ValidadorSimplesTest
+com.trabalho_oo.ValidadorSimplesTest.deveRetornarTrueSePreRequisitoFoiAprovado -- Time elapsed: 0.029 s <<< FAILURE!
+org.opentest4j.AssertionFailedError: O resultado deve ser true pois o aluno tem nota para passar ==> expected: <true> but was: <false>
+	at org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
+	at org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:132)
+	at org.junit.jupiter.api.AssertTrue.failNotTrue(AssertTrue.java:63)
+	at org.junit.jupiter.api.AssertTrue.assertTrue(AssertTrue.java:36)
+	at org.junit.jupiter.api.Assertions.assertTrue(Assertions.java:214)
+	at com.trabalho_oo.ValidadorSimplesTest.deveRetornarTrueSePreRequisitoFoiAprovado(ValidadorSimplesTest.java:49)
 	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
 	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
 	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)

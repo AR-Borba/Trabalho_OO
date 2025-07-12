@@ -11,17 +11,11 @@ public class ValidadorSimples implements ValidadorPreRequisito {
     }
 
     @Override
-    public boolean validar(Aluno aluno, Disciplina disciplina) {
-        boolean teste = true;
-        for(ValidadorPreRequisito codigoPreRequisito : disciplina.getPreRequisitos()){
-            teste = false;
-            for(Disciplina codigoAluno: aluno.getHistorico().keySet() ){
-                if(codigoPreRequisito == codigoAluno && aluno.getHistorico().get(codigoAluno) >= NOTA_MINIMA)
-                    teste = true;
-            }
-            if(!teste)
-                return teste;  
+    public boolean validar(Aluno aluno, Disciplina disciplina) {   
+        for(Disciplina cursada : aluno.getHistorico().keySet()){
+            if( (aluno.getHistorico().get(cursada) >= NOTA_MINIMA) && (cursada == disciplina.getPreRequisitos() ))
+                return true;
         }
-        return true;    
+        return false;
     }
 }
