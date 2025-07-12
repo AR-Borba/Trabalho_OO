@@ -47,8 +47,18 @@ public class Aluno {
         return gradeFutura;
     }
 
-    public void adicionarAoHistorico(Disciplina d, double nota) {
+    private boolean isAprovado(Disciplina d) {
+        if(historico.get(d) >= 60.0)
+            return true;
+        return false;
+    }
+
+    private void adicionarAoHistorico(Disciplina d, double nota) {
         if(historico.get(d) == null || historico.get(d) < nota)
             historico.put(d, nota);
+    }
+
+    private void adicionarAoPlanejamento(Turma t) {
+        gradeFutura.add(t);
     }
 }

@@ -5,6 +5,7 @@ import java.util.List;
 
 import com.trabalho_oo.Models.CodigoDisciplina;
 import com.trabalho_oo.Validadores.ValidadorPreRequisito;
+import com.trabalho_oo.entities.Aluno;
 
 public abstract class Disciplina {
     private String nomeDisciplina;
@@ -44,5 +45,10 @@ public abstract class Disciplina {
 
     public List<Disciplina> getCoRequisitos() {
         return coRequisitos;
+    }
+
+    private boolean podeSerCursadoPor(Aluno aluno) {
+        // lógica de validação de requisitos
+        return true;
     }
 }

@@ -47,4 +47,8 @@ public class Turma {
     public Disciplina getDisciplina() {
         return disciplina;
     }
+
+    public boolean isCheia() {
+        return (capacidadeMaxima - alunosMatriculados) == 0;
+    }
 }
