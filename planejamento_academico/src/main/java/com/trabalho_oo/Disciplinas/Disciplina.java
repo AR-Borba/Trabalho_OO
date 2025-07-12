@@ -4,20 +4,21 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.trabalho_oo.Models.CodigoDisciplina;
+import com.trabalho_oo.Validadores.ValidadorPreRequisito;
 
 public abstract class Disciplina {
     private String nomeDisciplina;
-    private CodigoDisciplina codigo;              // criar um tipo código?
+    private CodigoDisciplina codigo;
     private int cargaHorariaSemanal;
-    List<CodigoDisciplina> preRequisitos = new ArrayList<>(); 
-    
-    List<CodigoDisciplina> coRequisitos = new ArrayList<>();
+    List<ValidadorPreRequisito> preRequisitos = new ArrayList<>(); 
+    List<ValidadorPreRequisito> coRequisitos = new ArrayList<>();
     
     public Disciplina(){
         
     }
     
-    public Disciplina(String nomeDisciplina, CodigoDisciplina codigo, int cargaHorariaSemanal, ArrayList<CodigoDisciplina> preRequisitos, ArrayList<CodigoDisciplina> coRequisitos){
+    
+    public Disciplina(String nomeDisciplina, CodigoDisciplina codigo, int cargaHorariaSemanal, ArrayList<ValidadorPreRequisito> preRequisitos, ArrayList<ValidadorPreRequisito> coRequisitos){
         this.nomeDisciplina = nomeDisciplina;
         this.codigo = codigo;
         this.cargaHorariaSemanal = cargaHorariaSemanal;
@@ -25,11 +26,23 @@ public abstract class Disciplina {
         this.coRequisitos = coRequisitos;
     }
     
-    private void setNome(String nome){
-        nomeDisciplina = nome;
+    public String getNomeDisciplina() {
+        return nomeDisciplina;
+    }
+
+    public CodigoDisciplina getCodigo() {
+        return codigo;
+    }
+
+    public int getCargaHorariaSemanal() {
+        return cargaHorariaSemanal;
     }
     
-    public List<CodigoDisciplina> getPreRequisitos() {
+    public List<ValidadorPreRequisito> getPreRequisitos() {
         return preRequisitos;
+    }
+
+    public List<ValidadorPreRequisito> getCoRequisitos() {
+        return coRequisitos;
     }
 }
