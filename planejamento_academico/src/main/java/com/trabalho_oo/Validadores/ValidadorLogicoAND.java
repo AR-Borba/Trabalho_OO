@@ -15,6 +15,11 @@ public class ValidadorLogicoAND implements ValidadorPreRequisito {
 
     @Override
     public boolean validar(Aluno aluno, Disciplina disciplina) {
-        return true;
+    for (ValidadorPreRequisito validador : this.validadores) {
+        if (validador.validar(aluno, disciplina)) {
+                return true;
+            }
+        }
+        return false;
     }
 }
