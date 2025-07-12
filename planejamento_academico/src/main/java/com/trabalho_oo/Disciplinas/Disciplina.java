@@ -11,14 +11,14 @@ public abstract class Disciplina {
     private CodigoDisciplina codigo;
     private int cargaHorariaSemanal;
     List<ValidadorPreRequisito> preRequisitos = new ArrayList<>(); 
-    List<ValidadorPreRequisito> coRequisitos = new ArrayList<>();
+    List<Disciplina> coRequisitos = new ArrayList<>();
     
     public Disciplina(){
         
     }
     
     
-    public Disciplina(String nomeDisciplina, CodigoDisciplina codigo, int cargaHorariaSemanal, ArrayList<ValidadorPreRequisito> preRequisitos, ArrayList<ValidadorPreRequisito> coRequisitos){
+    public Disciplina(String nomeDisciplina, CodigoDisciplina codigo, int cargaHorariaSemanal, ArrayList<ValidadorPreRequisito> preRequisitos, ArrayList<Disciplina> coRequisitos){
         this.nomeDisciplina = nomeDisciplina;
         this.codigo = codigo;
         this.cargaHorariaSemanal = cargaHorariaSemanal;
@@ -42,7 +42,7 @@ public abstract class Disciplina {
         return preRequisitos;
     }
 
-    public List<ValidadorPreRequisito> getCoRequisitos() {
+    public List<Disciplina> getCoRequisitos() {
         return coRequisitos;
     }
 }
