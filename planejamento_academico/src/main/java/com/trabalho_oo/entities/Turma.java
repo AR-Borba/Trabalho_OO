@@ -1,10 +1,11 @@
-package com.trabalho_oo.Disciplinas;
+package com.trabalho_oo.entities;
 
 import java.time.LocalTime;
 import java.util.Set;
 
 import com.trabalho_oo.Models.DiaDaSemana;
 import com.trabalho_oo.Models.HorarioAula;
+import com.trabalho_oo.entities.Disciplinas.Disciplina;
 
 public class Turma {
     private char id;

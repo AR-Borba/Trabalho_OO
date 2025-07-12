@@ -1,4 +1,4 @@
-package com.trabalho_oo.Disciplinas;
+package com.trabalho_oo.entities.Disciplinas;
 
 import java.util.ArrayList;
 import java.util.List;

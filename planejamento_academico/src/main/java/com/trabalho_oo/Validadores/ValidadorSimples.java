@@ -1,8 +1,8 @@
 package com.trabalho_oo.Validadores;
 
-import com.trabalho_oo.Aluno;
-import com.trabalho_oo.Disciplinas.Disciplina;
 import com.trabalho_oo.Models.CodigoDisciplina;
+import com.trabalho_oo.entities.Aluno;
+import com.trabalho_oo.entities.Disciplinas.Disciplina;
 
 public class ValidadorSimples implements ValidadorPreRequisito {
     private static final double NOTA_MINIMA = 60.0;
