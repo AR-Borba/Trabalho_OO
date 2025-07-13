@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import com.trabalho_oo.Validadores.ValidadorPreRequisito;
 
 public class DisciplinaEletiva extends Disciplina{
-    public DisciplinaEletiva(String nomeDisciplina, String codigo, int cargaHorariaSemanal, ArrayList<ValidadorPreRequisito> preRequisitos, ArrayList<Disciplina> coRequisitos, String type) {
+    public DisciplinaEletiva(String nomeDisciplina, String codigo, int cargaHorariaSemanal, ArrayList<ValidadorPreRequisito> preRequisitos, ArrayList<Disciplina> coRequisitos) {
         super(nomeDisciplina, codigo, cargaHorariaSemanal, preRequisitos, coRequisitos);
     }
 
