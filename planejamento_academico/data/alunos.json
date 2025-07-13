@@ -1,0 +1,374 @@
+[
+  {
+    "nomeAluno": "João Caloiro",
+    "matricula": "202501001",
+    "cargaHorariaMaxima": 24,
+    "historico": {
+      "com.trabalho_oo.entities.Disciplinas.DisciplinaObrigatoria@77d8e50c": 85.0,
+      "com.trabalho_oo.entities.Disciplinas.DisciplinaObrigatoria@87200d6f": 70.0
+    },
+    "gradeFutura": [
+      {
+        "id": "A",
+        "capacidadeMaxima": 60,
+        "alunosMatriculados": 0,
+        "horarioTurma": [
+          {
+            "diaDaAula": "SEGUNDA",
+            "horaInicioAula": "19:00",
+            "horaFimAula": "20:40"
+          }
+        ],
+        "salaAula": "Sala 301",
+        "disciplina": {
+          "type": "OBRIGATORIA",
+          "nomeDisciplina": "ALGORITMO II",
+          "codigo": "DCC200",
+          "cargaHorariaSemanal": 90,
+          "preRequisitos": [
+            {
+              "validatorType": "SIMPLES",
+              "preRequisito": {
+                "type": "OBRIGATORIA",
+                "nomeDisciplina": "ALGORITMO I",
+                "codigo": "DCC199",
+                "cargaHorariaSemanal": 90,
+                "preRequisitos": [],
+                "coRequisitos": []
+              }
+            }
+          ],
+          "coRequisitos": []
+        }
+      },
+      {
+        "id": "B",
+        "capacidadeMaxima": 50,
+        "alunosMatriculados": 0,
+        "horarioTurma": [
+          {
+            "diaDaAula": "QUINTA",
+            "horaInicioAula": "19:00",
+            "horaFimAula": "20:40"
+          }
+        ],
+        "salaAula": "Sala 305",
+        "disciplina": {
+          "type": "OBRIGATORIA",
+          "nomeDisciplina": "ALGORITMO II",
+          "codigo": "DCC200",
+          "cargaHorariaSemanal": 90,
+          "preRequisitos": [
+            {
+              "validatorType": "SIMPLES",
+              "preRequisito": {
+                "type": "OBRIGATORIA",
+                "nomeDisciplina": "ALGORITMO I",
+                "codigo": "DCC199",
+                "cargaHorariaSemanal": 90,
+                "preRequisitos": [],
+                "coRequisitos": []
+              }
+            }
+          ],
+          "coRequisitos": []
+        }
+      },
+      {
+        "id": "A",
+        "capacidadeMaxima": 50,
+        "alunosMatriculados": 0,
+        "horarioTurma": [
+          {
+            "diaDaAula": "TERÇA",
+            "horaInicioAula": "21:00",
+            "horaFimAula": "22:40"
+          }
+        ],
+        "salaAula": "Sala 205",
+        "disciplina": {
+          "type": "OBRIGATORIA",
+          "nomeDisciplina": "ESTRUTURA DE DADOS I",
+          "codigo": "DCC013",
+          "cargaHorariaSemanal": 60,
+          "preRequisitos": [
+            {
+              "validatorType": "SIMPLES",
+              "preRequisito": {
+                "type": "OBRIGATORIA",
+                "nomeDisciplina": "ALGORITMO II",
+                "codigo": "DCC200",
+                "cargaHorariaSemanal": 90,
+                "preRequisitos": [
+                  {
+                    "validatorType": "SIMPLES",
+                    "preRequisito": {
+                      "type": "OBRIGATORIA",
+                      "nomeDisciplina": "ALGORITMO I",
+                      "codigo": "DCC199",
+                      "cargaHorariaSemanal": 90,
+                      "preRequisitos": [],
+                      "coRequisitos": []
+                    }
+                  }
+                ],
+                "coRequisitos": []
+              }
+            }
+          ],
+          "coRequisitos": []
+        }
+      },
+      {
+        "id": "B",
+        "capacidadeMaxima": 50,
+        "alunosMatriculados": 0,
+        "horarioTurma": [
+          {
+            "diaDaAula": "QUINTA",
+            "horaInicioAula": "19:00",
+            "horaFimAula": "20:40"
+          }
+        ],
+        "salaAula": "Sala 305",
+        "disciplina": {
+          "type": "OBRIGATORIA",
+          "nomeDisciplina": "ESTRUTURA DE DADOS I",
+          "codigo": "DCC013",
+          "cargaHorariaSemanal": 60,
+          "preRequisitos": [
+            {
+              "validatorType": "SIMPLES",
+              "preRequisito": {
+                "type": "OBRIGATORIA",
+                "nomeDisciplina": "ALGORITMO II",
+                "codigo": "DCC200",
+                "cargaHorariaSemanal": 90,
+                "preRequisitos": [
+                  {
+                    "validatorType": "SIMPLES",
+                    "preRequisito": {
+                      "type": "OBRIGATORIA",
+                      "nomeDisciplina": "ALGORITMO I",
+                      "codigo": "DCC199",
+                      "cargaHorariaSemanal": 90,
+                      "preRequisitos": [],
+                      "coRequisitos": []
+                    }
+                  }
+                ],
+                "coRequisitos": []
+              }
+            }
+          ],
+          "coRequisitos": []
+        }
+      }
+    ]
+  },
+  {
+    "nomeAluno": "Maria Veterana",
+    "matricula": "202301005",
+    "cargaHorariaMaxima": 28,
+    "historico": {
+      "com.trabalho_oo.entities.Disciplinas.DisciplinaObrigatoria@77d8e50c": 95.0,
+      "com.trabalho_oo.entities.Disciplinas.DisciplinaObrigatoria@77d8e04c": 80.0,
+      "com.trabalho_oo.entities.Disciplinas.DisciplinaObrigatoria@77d8e7ad": 90.0,
+      "com.trabalho_oo.entities.Disciplinas.DisciplinaObrigatoria@77d8e04d": 88.0,
+      "com.trabalho_oo.entities.Disciplinas.DisciplinaObrigatoria@77d8e06e": 92.0,
+      "com.trabalho_oo.entities.Disciplinas.DisciplinaObrigatoria@77d8e412": 75.0
+    },
+    "gradeFutura": [
+      {
+        "id": "A",
+        "capacidadeMaxima": 50,
+        "alunosMatriculados": 0,
+        "horarioTurma": [
+          {
+            "diaDaAula": "TERÇA",
+            "horaInicioAula": "21:00",
+            "horaFimAula": "22:40"
+          }
+        ],
+        "salaAula": "Sala 205",
+        "disciplina": {
+          "type": "OBRIGATORIA",
+          "nomeDisciplina": "BANCO DE DADOS I",
+          "codigo": "DCC060",
+          "cargaHorariaSemanal": 60,
+          "preRequisitos": [
+            {
+              "validatorType": "AND",
+              "validadores": [
+                {
+                  "validatorType": "SIMPLES",
+                  "preRequisito": {
+                    "type": "OBRIGATORIA",
+                    "nomeDisciplina": "ESTRUTURA DE DADOS II",
+                    "codigo": "DCC012",
+                    "cargaHorariaSemanal": 60,
+                    "preRequisitos": [
+                      {
+                        "validatorType": "SIMPLES",
+                        "preRequisito": {
+                          "type": "OBRIGATORIA",
+                          "nomeDisciplina": "ESTRUTURA DE DADOS I",
+                          "codigo": "DCC013",
+                          "cargaHorariaSemanal": 60,
+                          "preRequisitos": [
+                            {
+                              "validatorType": "SIMPLES",
+                              "preRequisito": {
+                                "type": "OBRIGATORIA",
+                                "nomeDisciplina": "ALGORITMO II",
+                                "codigo": "DCC200",
+                                "cargaHorariaSemanal": 90,
+                                "preRequisitos": [
+                                  {
+                                    "validatorType": "SIMPLES",
+                                    "preRequisito": {
+                                      "type": "OBRIGATORIA",
+                                      "nomeDisciplina": "ALGORITMO I",
+                                      "codigo": "DCC199",
+                                      "cargaHorariaSemanal": 90,
+                                      "preRequisitos": [],
+                                      "coRequisitos": []
+                                    }
+                                  }
+                                ],
+                                "coRequisitos": []
+                              }
+                            }
+                          ],
+                          "coRequisitos": []
+                        }
+                      }
+                    ],
+                    "coRequisitos": []
+                  }
+                },
+                {
+                  "validatorType": "SIMPLES",
+                  "preRequisito": {
+                    "type": "OBRIGATORIA",
+                    "nomeDisciplina": "MODELAGEM DE SISTEMA I",
+                    "codigo": "DCC117",
+                    "cargaHorariaSemanal": 60,
+                    "preRequisitos": [
+                      {
+                        "validatorType": "SIMPLES",
+                        "preRequisito": {
+                          "type": "OBRIGATORIA",
+                          "nomeDisciplina": "ORIENTAÇÃO A OBJETO I",
+                          "codigo": "DCC025",
+                          "cargaHorariaSemanal": 60,
+                          "preRequisitos": [
+                            {
+                              "validatorType": "SIMPLES",
+                              "preRequisito": {
+                                "type": "OBRIGATORIA",
+                                "nomeDisciplina": "ALGORITMO II",
+                                "codigo": "DCC200",
+                                "cargaHorariaSemanal": 90,
+                                "preRequisitos": [
+                                  {
+                                    "validatorType": "SIMPLES",
+                                    "preRequisito": {
+                                      "type": "OBRIGATORIA",
+                                      "nomeDisciplina": "ALGORITMO I",
+                                      "codigo": "DCC199",
+                                      "cargaHorariaSemanal": 90,
+                                      "preRequisitos": [],
+                                      "coRequisitos": []
+                                    }
+                                  }
+                                ],
+                                "coRequisitos": []
+                              }
+                            }
+                          ],
+                          "coRequisitos": []
+                        }
+                      }
+                    ],
+                    "coRequisitos": []
+                  }
+                }
+              ]
+            }
+          ],
+          "coRequisitos": []
+        }
+      },
+      {
+        "id": "A",
+        "capacidadeMaxima": 50,
+        "alunosMatriculados": 0,
+        "horarioTurma": [
+          {
+            "diaDaAula": "TERÇA",
+            "horaInicioAula": "21:00",
+            "horaFimAula": "22:40"
+          }
+        ],
+        "salaAula": "Sala 205",
+        "disciplina": {
+          "type": "OBRIGATORIA",
+          "nomeDisciplina": "ENGENHARIA DE SOFTWARE",
+          "codigo": "DCC061",
+          "cargaHorariaSemanal": 60,
+          "preRequisitos": [
+            {
+              "validatorType": "SIMPLES",
+              "preRequisito": {
+                "type": "OBRIGATORIA",
+                "nomeDisciplina": "MODELAGEM DE SISTEMA I",
+                "codigo": "DCC117",
+                "cargaHorariaSemanal": 60,
+                "preRequisitos": [
+                  {
+                    "validatorType": "SIMPLES",
+                    "preRequisito": {
+                      "type": "OBRIGATORIA",
+                      "nomeDisciplina": "ORIENTAÇÃO A OBJETO I",
+                      "codigo": "DCC025",
+                      "cargaHorariaSemanal": 60,
+                      "preRequisitos": [
+                        {
+                          "validatorType": "SIMPLES",
+                          "preRequisito": {
+                            "type": "OBRIGATORIA",
+                            "nomeDisciplina": "ALGORITMO II",
+                            "codigo": "DCC200",
+                            "cargaHorariaSemanal": 90,
+                            "preRequisitos": [
+                              {
+                                "validatorType": "SIMPLES",
+                                "preRequisito": {
+                                  "type": "OBRIGATORIA",
+                                  "nomeDisciplina": "ALGORITMO I",
+                                  "codigo": "DCC199",
+                                  "cargaHorariaSemanal": 90,
+                                  "preRequisitos": [],
+                                  "coRequisitos": []
+                                }
+                              }
+                            ],
+                            "coRequisitos": []
+                          }
+                        }
+                      ],
+                      "coRequisitos": []
+                    }
+                  }
+                ],
+                "coRequisitos": []
+              }
+            }
+          ],
+          "coRequisitos": []
+        }
+      }
+    ]
+  }
+]
