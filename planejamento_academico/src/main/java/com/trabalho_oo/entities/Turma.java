@@ -1,6 +1,7 @@
 package com.trabalho_oo.entities;
 
 import java.time.LocalTime;
+import java.util.HashSet;
 import java.util.Set;
 
 import com.trabalho_oo.Models.DiaDaSemana;
@@ -11,7 +12,7 @@ public class Turma {
     private char id;
     private int capacidadeMaxima;
     private int alunosMatriculados;
-    private Set<HorarioAula> horarioTurma;
+    private Set<HorarioAula> horarioTurma = new HashSet<>();
     private String salaAula;
     private Disciplina disciplina;
     
