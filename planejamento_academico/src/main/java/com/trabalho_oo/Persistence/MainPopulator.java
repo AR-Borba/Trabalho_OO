@@ -10,167 +10,154 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+
+/**
+ * Classe final para popular os arquivos JSON com os dados iniciais do sistema.
+ * Executar este main() uma única vez para gerar 'disciplinas.json' e 'turmas.json'.
+ */
 public class MainPopulator {
 
     public static void main(String[] args) {
-        criaDisciplinas();
-        criaTurmas();
+        // Passo 1: Cria todas as disciplinas em memória e salva no ficheiro.
+        Map<String, Disciplina> mapaDeDisciplinas = criaDisciplinas();
+
+        // Passo 2: Se a criação foi bem-sucedida, passa o mapa de disciplinas diretamente
+        // para o método que cria as turmas, evitando erros de leitura de ficheiro.
+        if (mapaDeDisciplinas != null && !mapaDeDisciplinas.isEmpty()) {
+            criaTurmas(mapaDeDisciplinas);
+        } else {
+            System.out.println("ERRO: Não foi possível criar as disciplinas. A criação de turmas foi abortada.");
+        }
     }
 
-    private static void criaTurmas() {
+    /**
+     * Cria e salva as turmas para as disciplinas existentes.
+     * Gera no máximo 2 turmas para cada disciplina de DCC.
+     * @param mapaDeDisciplinas O mapa de disciplinas já criado em memória.
+     */
+    private static void criaTurmas(Map<String, Disciplina> mapaDeDisciplinas) {
        System.out.println("Iniciando a criação das turmas...");
-
-        // 1. Carregar as disciplinas já existentes
-        Persistence<Disciplina> disciplinaPersistence = new DisciplinaPersistence();
-        List<Disciplina> todasAsDisciplinas = disciplinaPersistence.findAll();
-
-        if (todasAsDisciplinas.isEmpty()) {
-            System.out.println("ERRO: O arquivo disciplinas.json está vazio ou não foi encontrado.");
-            System.out.println("Por favor, execute o PopulatorDCC primeiro.");
-            return;
-        }
-
-        // Mapeia disciplinas pelo código para facilitar a busca
-        Map<String, Disciplina> mapaDeDisciplinas = new HashMap<>();
-        for (Disciplina d : todasAsDisciplinas) {
-            mapaDeDisciplinas.put(d.getCodigo(), d);
-        }
-
-        // 2. Criar a lista de turmas
         List<Turma> listaDeTurmas = new ArrayList<>();
 
-        // --- Adicionando turmas para as disciplinas de DCC ---
-        // A lógica abaixo é baseada nos planos departamentais.
-        // Você pode ajustar capacidades, salas e horários conforme necessário.
+        // Itera sobre todas as disciplinas de DCC que foram criadas
+        for (Disciplina disciplina : mapaDeDisciplinas.values()) {
+            if (disciplina.getCodigo().startsWith("DCC")) {
+                
+                // --- Turma A (criada para todas as disciplinas de DCC) ---
+                // Horários e salas de exemplo. Ajuste conforme necessário.
+                if (disciplina.getCodigo().equals("DCC199") || disciplina.getCodigo().equals("DCC200")) {
+                    // Exemplo: Disciplinas de Algoritmos com horário noturno
+                    listaDeTurmas.add(new Turma('A', 60, 0, DiaDaSemana.SEGUNDA, LocalTime.of(19, 0), LocalTime.of(20, 40), "Sala 301", disciplina));
+                } else if (disciplina.getCodigo().contains("5")) { // Práticas
+                     listaDeTurmas.add(new Turma('A', 30, 0, DiaDaSemana.QUARTA, LocalTime.of(19, 0), LocalTime.of(20, 40), "Laboratório 1", disciplina));
+                }
+                else {
+                    // Padrão para outras disciplinas
+                    listaDeTurmas.add(new Turma('A', 50, 0, DiaDaSemana.TERÇA, LocalTime.of(21, 0), LocalTime.of(22, 40), "Sala 205", disciplina));
+                }
 
-        // Exemplo para DCC199 - ALGORITMO I
-        Disciplina dcc199 = mapaDeDisciplinas.get("DCC199");
-        if (dcc199 != null) {
-            listaDeTurmas.add(new Turma('A', 60, 0, DiaDaSemana.SEGUNDA, LocalTime.of(19, 0), LocalTime.of(21, 0), "Sala 302", dcc199));
-            listaDeTurmas.add(new Turma('B', 60, 0, DiaDaSemana.TERÇA, LocalTime.of(19, 0), LocalTime.of(21, 0), "Sala 303", dcc199));
+                // --- Turma B (criada para disciplinas selecionadas, até o 3º período) ---
+                // Adicionando uma segunda turma para matérias com mais alunos
+                String codigo = disciplina.getCodigo();
+                if (codigo.equals("DCC199") || codigo.equals("DCC200") || codigo.equals("DCC013") || codigo.equals("DCC025")) {
+                    listaDeTurmas.add(new Turma('B', 50, 0, DiaDaSemana.QUINTA, LocalTime.of(19, 0), LocalTime.of(20, 40), "Sala 305", disciplina));
+                }
+            }
         }
 
-        // Exemplo para DCC200 - ALGORITMO II
-        Disciplina dcc200 = mapaDeDisciplinas.get("DCC200");
-        if (dcc200 != null) {
-            listaDeTurmas.add(new Turma('A', 50, 0, DiaDaSemana.QUARTA, LocalTime.of(21, 0), LocalTime.of(23, 0), "Sala 4101", dcc200));
-        }
-
-        // Exemplo para DCC013 - ESTRUTURA DE DADOS I
-        Disciplina dcc013 = mapaDeDisciplinas.get("DCC013");
-        if (dcc013 != null) {
-            listaDeTurmas.add(new Turma('A', 45, 0, DiaDaSemana.QUINTA, LocalTime.of(19, 0), LocalTime.of(21, 0), "Lab 1", dcc013));
-            listaDeTurmas.add(new Turma('B', 45, 0, DiaDaSemana.SEXTA, LocalTime.of(19, 0), LocalTime.of(21, 0), "Lab 2", dcc013));
-        }
-
-        // Exemplo para DCC025 - ORIENTAÇÃO A OBJETO I
-        Disciplina dcc025 = mapaDeDisciplinas.get("DCC025");
-        if (dcc025 != null) {
-            listaDeTurmas.add(new Turma('A', 50, 0, DiaDaSemana.SEGUNDA, LocalTime.of(21, 0), LocalTime.of(23, 0), "Sala 201", dcc025));
-        }
-
-        // ... continue adicionando as outras turmas seguindo o mesmo padrão ...
-        // Verifique se a disciplina existe no mapa antes de criar a turma.
-
-
-        // 3. Salvar a lista de turmas no arquivo JSON
         System.out.println("Salvando " + listaDeTurmas.size() + " turmas em turmas.json...");
         Persistence<Turma> turmasPersistence = new TurmaPersistence();
         turmasPersistence.save(listaDeTurmas);
-
         System.out.println("Processo concluído! Arquivo turmas.json foi criado/atualizado.");
     }
 
-    private static void criaDisciplinas() {
-        System.out.println("Iniciando a criação das disciplinas...");
-
-        // Mapa para armazenar e buscar disciplinas já criadas pelo código.
+    /**
+     * Cria TODAS as disciplinas da grade, configura os seus pré-requisitos e salva num ficheiro.
+     * @return Um mapa com todas as disciplinas criadas.
+     */
+    private static Map<String, Disciplina> criaDisciplinas() {
+        System.out.println("Iniciando a criação de todas as disciplinas...");
         Map<String, Disciplina> mapaDeDisciplinas = new HashMap<>();
 
-        // --- Pré-Carga de Disciplinas de outros departamentos (essencial para os pré-requisitos) ---
-        // Adicionando placeholders. Você pode completar com os dados corretos.
+        // --- Pré-Carga de Disciplinas de outros departamentos ---
         mapaDeDisciplinas.put("MAT154", new DisciplinaObrigatoria("CÁLCULO I", "MAT154", 60, new ArrayList<>(), new ArrayList<>()));
         mapaDeDisciplinas.put("MAT155", new DisciplinaObrigatoria("GEOMETRIA ANALÍTICA E SISTEMA LINEARES I", "MAT155", 60, new ArrayList<>(), new ArrayList<>()));
         mapaDeDisciplinas.put("MAT156", new DisciplinaObrigatoria("CÁLCULO II", "MAT156", 60, new ArrayList<>(), new ArrayList<>()));
-        // ... adicione outras disciplinas não-DCC aqui se necessário
+        mapaDeDisciplinas.put("MAT157", new DisciplinaObrigatoria("CÁLCULO III", "MAT157", 60, new ArrayList<>(), new ArrayList<>()));
+        mapaDeDisciplinas.put("MAT025", new DisciplinaObrigatoria("EQUAÇÕES DIFERENCIAIS I", "MAT025", 60, new ArrayList<>(), new ArrayList<>()));
+        mapaDeDisciplinas.put("MAT158", new DisciplinaObrigatoria("ÁLGEBRA LINEAR", "MAT158", 60, new ArrayList<>(), new ArrayList<>()));
+        mapaDeDisciplinas.put("EST028", new DisciplinaObrigatoria("INTRODUÇÃO A ESTATÍSTICA", "EST028", 60, new ArrayList<>(), new ArrayList<>()));
 
         // --- Período 1 ---
-        System.out.println("Criando disciplinas do Período 1...");
-        Disciplina dcc199 = new DisciplinaObrigatoria("ALGORITMO I", "DCC199", 90, new ArrayList<>(), new ArrayList<>());
-        mapaDeDisciplinas.put("DCC199", dcc199);
-        Disciplina dc5199 = new DisciplinaObrigatoria("ALGORITMO I - PRÁTICA", "DC5199", 0, new ArrayList<>(), new ArrayList<>());
-        mapaDeDisciplinas.put("DC5199", dc5199);
-
+        mapaDeDisciplinas.put("DCC199", new DisciplinaObrigatoria("ALGORITMO I", "DCC199", 90, new ArrayList<>(), new ArrayList<>()));
+        mapaDeDisciplinas.put("DCC5199", new DisciplinaObrigatoria("ALGORITMO I - PRÁTICA", "DCC5199", 0, new ArrayList<>(), new ArrayList<>()));
 
         // --- Período 2 ---
-        System.out.println("Criando disciplinas do Período 2...");
-        // Pré-req para DCC200
         ArrayList<ValidadorPreRequisito> preReqDCC200 = new ArrayList<>();
         preReqDCC200.add(new ValidadorSimples(mapaDeDisciplinas.get("DCC199")));
-        Disciplina dcc200 = new DisciplinaObrigatoria("ALGORITMO II", "DCC200", 90, preReqDCC200, new ArrayList<>());
-        mapaDeDisciplinas.put("DCC200", dcc200);
-
-        Disciplina dcc5200 = new DisciplinaObrigatoria("ALGORITMO II - PRÁTICA", "DCC5200", 0, new ArrayList<>(), new ArrayList<>());
-        mapaDeDisciplinas.put("DCC5200", dcc5200);
-
+        mapaDeDisciplinas.put("DCC200", new DisciplinaObrigatoria("ALGORITMO II", "DCC200", 90, preReqDCC200, new ArrayList<>()));
+        mapaDeDisciplinas.put("DCC5200", new DisciplinaObrigatoria("ALGORITMO II - PRÁTICA", "DCC5200", 0, new ArrayList<>(), new ArrayList<>()));
 
         // --- Período 3 ---
-        System.out.println("Criando disciplinas do Período 3...");
-        // Pré-req para DCC013
         ArrayList<ValidadorPreRequisito> preReqDCC013 = new ArrayList<>();
         preReqDCC013.add(new ValidadorSimples(mapaDeDisciplinas.get("DCC200")));
-        Disciplina dcc013 = new DisciplinaObrigatoria("ESTRUTURA DE DADOS I", "DCC013", 60, preReqDCC013, new ArrayList<>());
-        mapaDeDisciplinas.put("DCC013", dcc013);
-        
-        // Pré-req para DCC025
+        mapaDeDisciplinas.put("DCC013", new DisciplinaObrigatoria("ESTRUTURA DE DADOS I", "DCC013", 60, preReqDCC013, new ArrayList<>()));
+
         ArrayList<ValidadorPreRequisito> preReqDCC025 = new ArrayList<>();
         preReqDCC025.add(new ValidadorSimples(mapaDeDisciplinas.get("DCC200")));
-        Disciplina dcc025 = new DisciplinaObrigatoria("ORIENTAÇÃO A OBJETO I", "DCC025", 60, preReqDCC025, new ArrayList<>());
-        mapaDeDisciplinas.put("DCC025", dcc025);
+        mapaDeDisciplinas.put("DCC025", new DisciplinaObrigatoria("ORIENTAÇÃO A OBJETO I", "DCC025", 60, preReqDCC025, new ArrayList<>()));
 
-        // Disciplinas sem pré-req de DCC neste período
         mapaDeDisciplinas.put("DCC122", new DisciplinaObrigatoria("CIRCUITOS DIGITAIS", "DCC122", 60, new ArrayList<>(), new ArrayList<>()));
         mapaDeDisciplinas.put("DCC160", new DisciplinaObrigatoria("LÓGICA E FUNDAMENTOS PARA A COMPUTAÇÃO", "DCC160", 60, new ArrayList<>(), new ArrayList<>()));
         mapaDeDisciplinas.put("DCC202", new DisciplinaObrigatoria("DESENVOLVIMENTO WEB", "DCC202", 30, new ArrayList<>(), new ArrayList<>()));
 
-
         // --- Período 4 ---
-        System.out.println("Criando disciplinas do Período 4...");
-        // Pré-req para DCC008
         ArrayList<ValidadorPreRequisito> preReqDCC008 = new ArrayList<>();
-        preReqDCC008.add(new ValidadorLogicoAND(
-            new ValidadorSimples(mapaDeDisciplinas.get("DCC199")),
-            new ValidadorSimples(mapaDeDisciplinas.get("MAT155"))
-        ));
-        Disciplina dcc008 = new DisciplinaObrigatoria("CÁLCULO NUMÉRICO", "DCC008", 60, preReqDCC008, new ArrayList<>());
-        mapaDeDisciplinas.put("DCC008", dcc008);
-        
-        // ... continue o padrão para as outras disciplinas ...
-        // Exemplo: DCC012
+        preReqDCC008.add(new ValidadorLogicoAND(new ValidadorSimples(mapaDeDisciplinas.get("DCC199")), new ValidadorSimples(mapaDeDisciplinas.get("MAT155"))));
+        mapaDeDisciplinas.put("DCC008", new DisciplinaObrigatoria("CÁLCULO NUMÉRICO", "DCC008", 60, preReqDCC008, new ArrayList<>()));
+
         ArrayList<ValidadorPreRequisito> preReqDCC012 = new ArrayList<>();
         preReqDCC012.add(new ValidadorSimples(mapaDeDisciplinas.get("DCC013")));
-        Disciplina dcc012 = new DisciplinaObrigatoria("ESTRUTURA DE DADOS II", "DCC012", 60, preReqDCC012, new ArrayList<>());
-        mapaDeDisciplinas.put("DCC012", dcc012);
-
+        mapaDeDisciplinas.put("DCC012", new DisciplinaObrigatoria("ESTRUTURA DE DADOS II", "DCC012", 60, preReqDCC012, new ArrayList<>()));
+        
         ArrayList<ValidadorPreRequisito> preReqDCC070 = new ArrayList<>();
         preReqDCC070.add(new ValidadorSimples(mapaDeDisciplinas.get("DCC122")));
-        Disciplina dcc070 = new DisciplinaObrigatoria("ORGANIZAÇÃO DE COMPUTADORES I", "DCC070", 60, preReqDCC070, new ArrayList<>());
-        mapaDeDisciplinas.put("DCC070", dcc070);
+        mapaDeDisciplinas.put("DCC070", new DisciplinaObrigatoria("ORGANIZAÇÃO DE COMPUTADORES I", "DCC070", 60, preReqDCC070, new ArrayList<>()));
 
         ArrayList<ValidadorPreRequisito> preReqDCC117 = new ArrayList<>();
         preReqDCC117.add(new ValidadorSimples(mapaDeDisciplinas.get("DCC025")));
-        Disciplina dcc117 = new DisciplinaObrigatoria("MODELAGEM DE SISTEMA I", "DCC117", 60, preReqDCC117, new ArrayList<>());
-        mapaDeDisciplinas.put("DCC117", dcc117);
-
+        mapaDeDisciplinas.put("DCC117", new DisciplinaObrigatoria("MODELAGEM DE SISTEMA I", "DCC117", 60, preReqDCC117, new ArrayList<>()));
 
         // --- Período 5 ---
-        System.out.println("Criando disciplinas do Período 5...");
-        // ... continue o mesmo padrão para o Período 5 ...
+        ArrayList<ValidadorPreRequisito> preReqDCC055 = new ArrayList<>();
+        preReqDCC055.add(new ValidadorSimples(mapaDeDisciplinas.get("DCC013")));
+        mapaDeDisciplinas.put("DCC055", new DisciplinaObrigatoria("TEORIA DOS GRAFOS", "DCC055", 60, preReqDCC055, new ArrayList<>()));
+
+        ArrayList<ValidadorPreRequisito> preReqDCC060 = new ArrayList<>();
+        preReqDCC060.add(new ValidadorLogicoAND(new ValidadorSimples(mapaDeDisciplinas.get("DCC012")), new ValidadorSimples(mapaDeDisciplinas.get("DCC117"))));
+        mapaDeDisciplinas.put("DCC060", new DisciplinaObrigatoria("BANCO DE DADOS I", "DCC060", 60, preReqDCC060, new ArrayList<>()));
+
+        ArrayList<ValidadorPreRequisito> preReqDCC061 = new ArrayList<>();
+        preReqDCC061.add(new ValidadorSimples(mapaDeDisciplinas.get("DCC117")));
+        mapaDeDisciplinas.put("DCC061", new DisciplinaObrigatoria("ENGENHARIA DE SOFTWARE", "DCC061", 60, preReqDCC061, new ArrayList<>()));
+
+        ArrayList<ValidadorPreRequisito> preReqDCC062 = new ArrayList<>();
+        preReqDCC062.add(new ValidadorSimples(mapaDeDisciplinas.get("DCC070")));
+        mapaDeDisciplinas.put("DCC062", new DisciplinaObrigatoria("SISTEMA OPERACIONAIS", "DCC062", 60, preReqDCC062, new ArrayList<>()));
+
+        ArrayList<ValidadorPreRequisito> preReqDCC095 = new ArrayList<>();
+        preReqDCC095.add(new ValidadorLogicoAND(new ValidadorSimples(mapaDeDisciplinas.get("DCC199")), new ValidadorSimples(mapaDeDisciplinas.get("MAT156"))));
+        mapaDeDisciplinas.put("DCC095", new DisciplinaObrigatoria("COMPUTAÇÃO GRÁFICA", "DCC095", 60, preReqDCC095, new ArrayList<>()));
         
-        // --- Salve tudo no arquivo JSON ---
+        ArrayList<ValidadorPreRequisito> preReqDCC203 = new ArrayList<>();
+        preReqDCC203.add(new ValidadorSimples(mapaDeDisciplinas.get("DCC200")));
+        mapaDeDisciplinas.put("DCC203", new DisciplinaObrigatoria("METODOLOGIA CIENTÍFICA", "DCC203", 30, preReqDCC203, new ArrayList<>()));
+        
         System.out.println("Salvando disciplinas em disciplinas.json...");
         Persistence<Disciplina> disciplinaPersistence = new DisciplinaPersistence();
         disciplinaPersistence.save(new ArrayList<>(mapaDeDisciplinas.values()));
         System.out.println("Processo concluído! Arquivo disciplinas.json foi criado/atualizado.");
+
+        return mapaDeDisciplinas;
     }
-}   
+}
