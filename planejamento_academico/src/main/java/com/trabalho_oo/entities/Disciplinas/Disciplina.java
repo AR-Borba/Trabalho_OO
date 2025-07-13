@@ -3,13 +3,12 @@ package com.trabalho_oo.entities.Disciplinas;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.trabalho_oo.Models.CodigoDisciplina;
 import com.trabalho_oo.Validadores.ValidadorPreRequisito;
 import com.trabalho_oo.entities.Aluno;
 
 public abstract class Disciplina {
     private String nomeDisciplina;
-    private CodigoDisciplina codigo;
+    private String codigo;
     private int cargaHorariaSemanal;
     List<ValidadorPreRequisito> preRequisitos = new ArrayList<>(); 
     List<Disciplina> coRequisitos = new ArrayList<>();
@@ -19,7 +18,7 @@ public abstract class Disciplina {
     }
     
     
-    public Disciplina(String nomeDisciplina, CodigoDisciplina codigo, int cargaHorariaSemanal, ArrayList<ValidadorPreRequisito> preRequisitos, ArrayList<Disciplina> coRequisitos){
+    public Disciplina(String nomeDisciplina, String codigo, int cargaHorariaSemanal, ArrayList<ValidadorPreRequisito> preRequisitos, ArrayList<Disciplina> coRequisitos){
         this.nomeDisciplina = nomeDisciplina;
         this.codigo = codigo;
         this.cargaHorariaSemanal = cargaHorariaSemanal;
@@ -31,7 +30,7 @@ public abstract class Disciplina {
         return nomeDisciplina;
     }
 
-    public CodigoDisciplina getCodigo() {
+    public String getCodigo() {
         return codigo;
     }
 

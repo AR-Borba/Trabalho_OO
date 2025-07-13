@@ -10,7 +10,7 @@ import java.util.List;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
-public class TurmasPersistence implements Persistence<Turma> {
+public class TurmaPersistence implements Persistence<Turma> {
 
     private static final String PATH = DIRECTORY + File.separator + "turmas.json";
 
