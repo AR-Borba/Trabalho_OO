@@ -5,7 +5,7 @@ import java.util.List;
 
 public interface Persistence<T> {
 
-    String DIRECTORY = "planejamento_academico" + File.separator + "data";
+    String DIRECTORY = "Trabalho_OO" + File.separator + "planejamento_academico" + File.separator + "data";
     void save(List<T> itens);
     List<T> findAll();
 }
