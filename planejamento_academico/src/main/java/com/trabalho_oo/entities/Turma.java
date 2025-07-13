@@ -12,17 +12,19 @@ public class Turma {
     private int capacidadeMaxima;
     private int alunosMatriculados;
     private Set<HorarioAula> horarioTurma;
+    private String salaAula;
     private Disciplina disciplina;
     
     public Turma() {
         
     }
     
-    public Turma(char id, int capacidadeMaxima, int alunosMatriculados, DiaDaSemana diaSemana, LocalTime horarioInicio, LocalTime horarioFim, Disciplina disciplina){
+    public Turma(char id, int capacidadeMaxima, int alunosMatriculados, DiaDaSemana diaSemana, LocalTime horarioInicio, LocalTime horarioFim, String salaAula, Disciplina disciplina){
         this.id = id;
         this.capacidadeMaxima = capacidadeMaxima;
         this.alunosMatriculados = alunosMatriculados;
         HorarioAula horarioNovo = new HorarioAula(diaSemana, horarioInicio, horarioFim);
+        this.salaAula = salaAula;
         this.disciplina = disciplina;
         
         horarioTurma.add(horarioNovo);
@@ -44,10 +46,14 @@ public class Turma {
         return horarioTurma;
     }
     
+    public String getSalaAula() {
+        return salaAula;
+    }
+
     public Disciplina getDisciplina() {
         return disciplina;
     }
-
+    
     public boolean isCheia() {
         return (capacidadeMaxima - alunosMatriculados) == 0;
     }

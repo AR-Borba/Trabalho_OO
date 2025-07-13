@@ -1,5 +1,6 @@
 package com.trabalho_oo.Persistence;
 
+import com.trabalho_oo.Utils.GsonFactory;
 import com.trabalho_oo.entities.Aluno;
 
 import java.io.File;
@@ -14,10 +15,11 @@ import com.google.gson.reflect.TypeToken;
 public class AlunoPersistence implements Persistence<Aluno> {
 
     private static final String PATH = DIRECTORY + File.separator + "alunos.json";
+    private final Gson gson = GsonFactory.getCustomGson();
+
 
     @Override
     public void save(List<Aluno> itens) {
-        Gson gson = new Gson();
         String json = gson.toJson(itens);
 
         File diretorio = new File(DIRECTORY);
@@ -30,7 +32,6 @@ public class AlunoPersistence implements Persistence<Aluno> {
 
     @Override
     public List<Aluno> findAll() {
-        Gson gson = new Gson();
         String json = Arquivo.le(PATH);
 
         List<Aluno> itens = new ArrayList<>();

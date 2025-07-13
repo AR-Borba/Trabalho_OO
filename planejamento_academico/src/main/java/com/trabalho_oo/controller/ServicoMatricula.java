@@ -9,9 +9,9 @@ import com.trabalho_oo.entities.Disciplinas.DisciplinaObrigatoria;
 
 public class ServicoMatricula {
     
-    public static void main(String[] args) {
-        List<ValidadorPreRequisito> preRequisitos = new ArrayList<>();
-        List<Disciplina> coRequisitos = new ArrayList<>();
-        Disciplina eh = new DisciplinaObrigatoria("OO", "DCC202", 2, pre preRequisitos, new ArrayList<Disciplina>());
-    }
+    // public static void main(String[] args) {
+    //     List<ValidadorPreRequisito> preRequisitos = new ArrayList<>();
+    //     List<Disciplina> coRequisitos = new ArrayList<>();
+    //     Disciplina eh = new DisciplinaObrigatoria("OO", "DCC202", 2, pre preRequisitos, new ArrayList<Disciplina>());
+    // }
 }

@@ -1,5 +1,6 @@
 package com.trabalho_oo.Persistence;
 
+import com.trabalho_oo.Utils.GsonFactory;
 import com.trabalho_oo.entities.Turma;
 
 import java.io.File;
@@ -13,10 +14,10 @@ import com.google.gson.reflect.TypeToken;
 public class TurmaPersistence implements Persistence<Turma> {
 
     private static final String PATH = DIRECTORY + File.separator + "turmas.json";
+    private final Gson gson = GsonFactory.getCustomGson();
 
     @Override
     public void save(List<Turma> itens) {
-        Gson gson = new Gson();
         String json = gson.toJson(itens);
 
         File diretorio = new File(DIRECTORY);
@@ -29,7 +30,6 @@ public class TurmaPersistence implements Persistence<Turma> {
 
     @Override
     public List<Turma> findAll() {
-        Gson gson = new Gson();
         String json = Arquivo.le(PATH);
 
         List<Turma> itens = new ArrayList<>();

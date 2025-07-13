@@ -5,7 +5,6 @@ import org.junit.jupiter.api.Test;
 
 import com.trabalho_oo.entities.*;
 import com.trabalho_oo.entities.Disciplinas.*;
-import com.trabalho_oo.Models.CodigoDisciplina;
 import com.trabalho_oo.Validadores.ValidadorPreRequisito;
 import com.trabalho_oo.Validadores.ValidadorSimples;
 

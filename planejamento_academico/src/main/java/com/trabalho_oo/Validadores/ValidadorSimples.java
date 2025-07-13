@@ -5,17 +5,19 @@ import com.trabalho_oo.entities.Disciplinas.Disciplina;
 
 public class ValidadorSimples implements ValidadorPreRequisito {
     private static final double NOTA_MINIMA = 60.0;
+    private Disciplina preRequisito;
 
     public ValidadorSimples() {
     
     }
 
+    public ValidadorSimples(Disciplina preRequisito) {
+        this.preRequisito = preRequisito;
+    }
+
     @Override
-    public boolean validar(Aluno aluno, Disciplina disciplina) {   
-        for(Disciplina cursada : aluno.getHistorico().keySet()){
-            if( (aluno.getHistorico().get(cursada) >= NOTA_MINIMA) && (cursada == disciplina.getPreRequisitos() ))
-                return true;
-        }
-        return false;
+    public boolean validar(Aluno aluno, Disciplina disciplina) {
+        Double nota = aluno.getHistorico().get(preRequisito);
+        return nota != null && nota >= NOTA_MINIMA;
     }
 }

@@ -2,6 +2,7 @@ package com.trabalho_oo.entities.Disciplinas;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 import com.trabalho_oo.Validadores.ValidadorPreRequisito;
 import com.trabalho_oo.entities.Aluno;
@@ -16,9 +17,8 @@ public abstract class Disciplina {
     public Disciplina(){
         
     }
-    
-    
-    public Disciplina(String nomeDisciplina, String codigo, int cargaHorariaSemanal, ArrayList<ValidadorPreRequisito> preRequisitos, ArrayList<Disciplina> coRequisitos){
+        
+    public Disciplina(String nomeDisciplina, String codigo, int cargaHorariaSemanal, ArrayList<ValidadorPreRequisito> preRequisitos, ArrayList<Disciplina> coRequisitos) {
         this.nomeDisciplina = nomeDisciplina;
         this.codigo = codigo;
         this.cargaHorariaSemanal = cargaHorariaSemanal;
@@ -29,7 +29,7 @@ public abstract class Disciplina {
     public String getNomeDisciplina() {
         return nomeDisciplina;
     }
-
+    
     public String getCodigo() {
         return codigo;
     }
@@ -41,13 +41,28 @@ public abstract class Disciplina {
     public List<ValidadorPreRequisito> getPreRequisitos() {
         return preRequisitos;
     }
-
+    
     public List<Disciplina> getCoRequisitos() {
         return coRequisitos;
     }
-
-    private boolean podeSerCursadoPor(Aluno aluno) {
+    
+    public boolean podeSerCursadoPor(Aluno aluno) {
         // lógica de validação de requisitos
         return true;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if(this == obj) return true;
+        if(obj == null || getClass() != obj.getClass()) return false;
+
+        Disciplina that = (Disciplina) obj;
+
+        return Objects.equals(codigo, that.codigo);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(codigo);
     }
 }

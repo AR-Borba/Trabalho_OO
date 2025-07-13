@@ -1,5 +1,6 @@
 package com.trabalho_oo.Persistence;
 
+import com.trabalho_oo.Utils.GsonFactory;
 import com.trabalho_oo.entities.Disciplinas.Disciplina;
 
 import java.io.File;
@@ -13,10 +14,12 @@ import com.google.gson.reflect.TypeToken;
 public class DisciplinaPersistence implements Persistence<Disciplina> {
 
     private static final String PATH = DIRECTORY + File.separator + "disciplinas.json";
+    private final Gson gson = GsonFactory.getCustomGson();
 
     @Override
     public void save(List<Disciplina> itens) {
-        Gson gson = new Gson();
+        System.out.println("DEBUG: Tentando salvar o ficheiro em: " + new File(PATH).getAbsolutePath());
+        
         String json = gson.toJson(itens);
 
         File diretorio = new File(DIRECTORY);
@@ -29,7 +32,7 @@ public class DisciplinaPersistence implements Persistence<Disciplina> {
 
     @Override
     public List<Disciplina> findAll() {
-        Gson gson = new Gson();
+        System.out.println("DEBUG: Tentando ler o ficheiro de: " + new File(PATH).getAbsolutePath());
         String json = Arquivo.le(PATH);
 
         List<Disciplina> itens = new ArrayList<>();
