@@ -1,5 +1,6 @@
 package com.trabalho_oo.Persistence;
 
+import com.trabalho_oo.entities.Aluno;
 import com.trabalho_oo.entities.Turma;
 import com.trabalho_oo.entities.Disciplinas.*;
 import com.trabalho_oo.Models.DiaDaSemana;
@@ -22,20 +23,79 @@ public class MainPopulator {
         Map<String, Disciplina> mapaDeDisciplinas = criaDisciplinas();
 
         // Passo 2: Se a criação foi bem-sucedida, passa o mapa de disciplinas diretamente
-        // para o método que cria as turmas, evitando erros de leitura de ficheiro.
+        List<Turma> listaDeTurmas = new ArrayList<>();
         if (mapaDeDisciplinas != null && !mapaDeDisciplinas.isEmpty()) {
-            criaTurmas(mapaDeDisciplinas);
+            listaDeTurmas = criaTurmas(mapaDeDisciplinas);
         } else {
-            System.out.println("ERRO: Não foi possível criar as disciplinas. A criação de turmas foi abortada.");
+            System.out.println("ERRO: Não foi possível criar as disciplinas. A criação de turmas e alunos foi abortada.");
+            return;
+        }
+
+        // Passo 3: Usa as disciplinas e turmas criadas para gerar os alunos.
+        if (!listaDeTurmas.isEmpty()) {
+            criaAlunos(mapaDeDisciplinas, listaDeTurmas);
+        } else {
+             System.out.println("AVISO: Nenhuma turma foi criada. A criação de alunos foi abortada.");
         }
     }
 
     /**
-     * Cria e salva as turmas para as disciplinas existentes.
-     * Gera no máximo 2 turmas para cada disciplina de DCC.
-     * @param mapaDeDisciplinas O mapa de disciplinas já criado em memória.
+    * Cria e salva os alunos com históricos e planejamentos de exemplo.
+    * @param mapaDeDisciplinas O mapa de todas as disciplinas existentes.
+    * @param listaDeTurmas A lista de todas as turmas ofertadas.
+    */
+    private static void criaAlunos(Map<String, Disciplina> mapaDeDisciplinas, List<Turma> listaDeTurmas) {
+        System.out.println("Iniciando a criação dos alunos...");
+        List<Aluno> listaDeAlunos = new ArrayList<>();
+        Persistence<Aluno> alunoPersistence = new AlunoPersistence();
+
+        // --- Aluno 1: João Caloiro ---
+        Map<Disciplina, Double> historicoJoao = new HashMap<>();
+        historicoJoao.put(mapaDeDisciplinas.get("DCC199"), 85.0); // Aprovado em Algoritmo I
+        historicoJoao.put(mapaDeDisciplinas.get("MAT154"), 70.0); // Aprovado em Cálculo I
+
+        List<Turma> planejamentoJoao = new ArrayList<>();
+        // Tenta se matricular em Algoritmo II e Estrutura de Dados I
+        for (Turma turma : listaDeTurmas) {
+            if (turma.getDisciplina().getCodigo().equals("DCC200") || turma.getDisciplina().getCodigo().equals("DCC013")) {
+                planejamentoJoao.add(turma);
+            }
+        }
+        Aluno joao = new Aluno("João Caloiro", "202501001", 24, historicoJoao, planejamentoJoao);
+        listaDeAlunos.add(joao);
+
+
+        // --- Aluno 2: Maria Veterana ---
+        Map<Disciplina, Double> historicoMaria = new HashMap<>();
+        historicoMaria.put(mapaDeDisciplinas.get("DCC199"), 95.0);
+        historicoMaria.put(mapaDeDisciplinas.get("DCC200"), 90.0);
+        historicoMaria.put(mapaDeDisciplinas.get("DCC013"), 88.0);
+        historicoMaria.put(mapaDeDisciplinas.get("DCC025"), 92.0);
+        historicoMaria.put(mapaDeDisciplinas.get("DCC117"), 75.0);
+        historicoMaria.put(mapaDeDisciplinas.get("DCC012"), 80.0);
+
+        List<Turma> planejamentoMaria = new ArrayList<>();
+        // Tenta se matricular em Banco de Dados I e Engenharia de Software
+         for (Turma turma : listaDeTurmas) {
+            if (turma.getDisciplina().getCodigo().equals("DCC060") || turma.getDisciplina().getCodigo().equals("DCC061")) {
+                planejamentoMaria.add(turma);
+            }
+        }
+        Aluno maria = new Aluno("Maria Veterana", "202301005", 28, historicoMaria, planejamentoMaria);
+        listaDeAlunos.add(maria);
+
+        System.out.println("Salvando " + listaDeAlunos.size() + " alunos em alunos.json...");
+        alunoPersistence.save(listaDeAlunos);
+        System.out.println("Processo concluído! Arquivo alunos.json foi criado/atualizado.");
+    }
+
+    /**
+     * Método responsável por criar as turmas baseadas nas disciplinas criadas.
+     * As turmas são salvas no ficheiro 'turmas.json'.
+     *
+     * @param mapaDeDisciplinas Mapa contendo todas as disciplinas criadas.
      */
-    private static void criaTurmas(Map<String, Disciplina> mapaDeDisciplinas) {
+    private static List<Turma> criaTurmas(Map<String, Disciplina> mapaDeDisciplinas) {
        System.out.println("Iniciando a criação das turmas...");
         List<Turma> listaDeTurmas = new ArrayList<>();
 
@@ -69,13 +129,17 @@ public class MainPopulator {
         Persistence<Turma> turmasPersistence = new TurmaPersistence();
         turmasPersistence.save(listaDeTurmas);
         System.out.println("Processo concluído! Arquivo turmas.json foi criado/atualizado.");
+        return listaDeTurmas;
     }
 
     /**
-     * Cria TODAS as disciplinas da grade, configura os seus pré-requisitos e salva num ficheiro.
-     * @return Um mapa com todas as disciplinas criadas.
+     * Método responsável por criar todas as disciplinas do curso de Ciência da Computação.
+     * As disciplinas são salvas no ficheiro 'disciplinas.json'.
+     *
+     * @return Mapa contendo todas as disciplinas criadas.
      */
     private static Map<String, Disciplina> criaDisciplinas() {
+
         System.out.println("Iniciando a criação de todas as disciplinas...");
         Map<String, Disciplina> mapaDeDisciplinas = new HashMap<>();
 
