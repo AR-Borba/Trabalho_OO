@@ -16,42 +16,42 @@ import com.trabalho_oo.entities.Turma;
 import com.trabalho_oo.entities.Disciplinas.Disciplina;
 import com.trabalho_oo.entities.Disciplinas.DisciplinaObrigatoria;
 
-public class ValidadorLogicoORTest {
+public class ValidadorLogicoANDTest {
     private Aluno aluno;
     private Map<Disciplina, Double> historico = new HashMap<>();
     private List<Turma> gradeFutura;
 
-    private DisciplinaObrigatoria organizacaoComputadores;
-    private DisciplinaObrigatoria circuitosDigitais;
-    private DisciplinaObrigatoria eletronicaDigital;
+    private DisciplinaObrigatoria calcNum;
+    private DisciplinaObrigatoria calcII;
+    private DisciplinaObrigatoria algoritmos;
     private ArrayList<ValidadorPreRequisito> vazia = new ArrayList<>();
-
     
     @BeforeEach
     void setUp() {
         aluno = new Aluno("Aluno de Teste", "202501001", 70, historico, gradeFutura);
-        organizacaoComputadores = new DisciplinaObrigatoria("Organização de Computadors", "DCC070" ,4, vazia, null);
-        circuitosDigitais = new DisciplinaObrigatoria("Circuitos digitais", "DCC122",  4, vazia, null);
-        eletronicaDigital = new DisciplinaObrigatoria("Eletrônica Digital", "DCC123",  4, vazia, null);
+        calcNum = new DisciplinaObrigatoria("Cálculo numérico", "DCC008" ,4, vazia, null);
+        calcII = new DisciplinaObrigatoria("Calculo II", "MAT002",  4, vazia, null);
+        algoritmos = new DisciplinaObrigatoria("Algoritmos I", "DCC001",  4, vazia, null);
     }
     
     @Test
     void deveRetornarTrueSePreRequisitoFoiAprovado1() {
-        aluno.adicionarAoHistorico(circuitosDigitais, 70.0);
-        ValidadorLogicoOR validador = new ValidadorLogicoOR();
+        aluno.adicionarAoHistorico(calcII, 70.0);
+        aluno.adicionarAoHistorico(algoritmos, 70.0);
+        ValidadorLogicoAND validador = new ValidadorLogicoAND();
 
-        boolean resultado = validador.validar(aluno, organizacaoComputadores);
+        boolean resultado = validador.validar(aluno, calcNum);
 
         assertTrue(resultado);
     }
 
     @Test
     void deveRetornarTrueSePreRequisitoFoiAprovado2() {
+        aluno.adicionarAoHistorico(calcII, 70.0);
+        aluno.adicionarAoHistorico(algoritmos, 46.0);
+        ValidadorLogicoAND validador = new ValidadorLogicoAND();
 
-        aluno.adicionarAoHistorico(eletronicaDigital, 80);
-        ValidadorLogicoOR validador = new ValidadorLogicoOR();
-
-        boolean resultado = validador.validar(aluno, organizacaoComputadores);
+        boolean resultado = validador.validar(aluno, calcNum);
 
         assertFalse(resultado);
     }
