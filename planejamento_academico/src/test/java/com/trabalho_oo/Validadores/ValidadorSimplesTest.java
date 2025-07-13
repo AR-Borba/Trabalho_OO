@@ -1,4 +1,4 @@
-package com.trabalho_oo;
+package com.trabalho_oo.Validadores;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
