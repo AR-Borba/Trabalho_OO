@@ -32,8 +32,8 @@ public class ValidadorSimplesTest {
         calculo2 = new DisciplinaObrigatoria("Cálculo 2", "MAT002",  4, vazia, null);  
     }
 
-    @Test
-    void deveRetornarTrueSePreRequisitoFoiAprovado() {
+    @Test //caso padrao
+    void Retorna_True_Para_PreRequisito_Aprovado() {
         aluno.adicionarAoHistorico(calculo1, 70.0);
         ValidadorSimples validador = new ValidadorSimples(calculo1);
 
@@ -42,8 +42,8 @@ public class ValidadorSimplesTest {
         assertTrue(resultado);
     }
 
-    @Test
-    void deveRetornarFalseSePreRequisitoFoiReprovado() {
+    @Test // reprovado na disciplina anterior
+    void Retorna_False_Para_PreRequisito_Reprovado() {
         aluno.adicionarAoHistorico(calculo1, 30);
         ValidadorSimples validador = new ValidadorSimples(calculo1);
 
@@ -52,8 +52,8 @@ public class ValidadorSimplesTest {
         assertFalse(resultado);
     }
 
-    @Test
-    void deveRetornarFalseSePreRequisitoNaoFoiCursado() {
+    @Test // nao cursou a disciplina anterior
+    void Retorna_False_Para_PreRequisito_NaoCursado() {
         ValidadorSimples validador = new ValidadorSimples();
 
         boolean resultado = validador.validar(aluno, calculo2);
