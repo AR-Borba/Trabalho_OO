@@ -8,4 +8,9 @@ public class DisciplinaOptativa extends Disciplina {
     public DisciplinaOptativa(String nomeDisciplina, String codigo, int cargaHorariaSemanal, ArrayList<ValidadorPreRequisito> preRequisitos, ArrayList<Disciplina> coRequisitos) {
         super(nomeDisciplina, codigo, cargaHorariaSemanal, preRequisitos, coRequisitos);
     }
+
+    @Override
+    public int getPrecedencia() {
+        return 1;
+    }
 }
