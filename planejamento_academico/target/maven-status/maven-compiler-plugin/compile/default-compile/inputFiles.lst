@@ -1,9 +1,9 @@
 C:\Users\arthu\OneDrive\Documentos\GitHub\Trabalho_OO\planejamento_academico\src\main\java\com\trabalho_oo\Validadores\ValidadorPreRequisito.java
 C:\Users\arthu\OneDrive\Documentos\GitHub\Trabalho_OO\planejamento_academico\src\main\java\com\trabalho_oo\Persistence\Arquivo.java
 C:\Users\arthu\OneDrive\Documentos\GitHub\Trabalho_OO\planejamento_academico\src\main\java\com\trabalho_oo\exceptions\CodigoDisciplinaException.java
-C:\Users\arthu\OneDrive\Documentos\GitHub\Trabalho_OO\planejamento_academico\src\main\java\com\trabalho_oo\Persistence\TurmasPersistence.java
 C:\Users\arthu\OneDrive\Documentos\GitHub\Trabalho_OO\planejamento_academico\src\main\java\com\trabalho_oo\entities\Disciplinas\DisciplinaEletiva.java
 C:\Users\arthu\OneDrive\Documentos\GitHub\Trabalho_OO\planejamento_academico\src\main\java\com\trabalho_oo\Validadores\ValidadorCreditosMinimos.java
+C:\Users\arthu\OneDrive\Documentos\GitHub\Trabalho_OO\planejamento_academico\src\main\java\com\trabalho_oo\Persistence\TurmaPersistence.java
 C:\Users\arthu\OneDrive\Documentos\GitHub\Trabalho_OO\planejamento_academico\src\main\java\com\trabalho_oo\exceptions\GerenciamentoVagasException.java
 C:\Users\arthu\OneDrive\Documentos\GitHub\Trabalho_OO\planejamento_academico\src\main\java\com\trabalho_oo\entities\Disciplinas\Disciplina.java
 C:\Users\arthu\OneDrive\Documentos\GitHub\Trabalho_OO\planejamento_academico\src\main\java\com\trabalho_oo\controller\ServicoMatricula.java
@@ -23,7 +23,9 @@ C:\Users\arthu\OneDrive\Documentos\GitHub\Trabalho_OO\planejamento_academico\src
 C:\Users\arthu\OneDrive\Documentos\GitHub\Trabalho_OO\planejamento_academico\src\main\java\com\trabalho_oo\Models\HorarioAula.java
 C:\Users\arthu\OneDrive\Documentos\GitHub\Trabalho_OO\planejamento_academico\src\main\java\com\trabalho_oo\Persistence\Persistence.java
 C:\Users\arthu\OneDrive\Documentos\GitHub\Trabalho_OO\planejamento_academico\src\main\java\com\trabalho_oo\exceptions\ConflitoDeHorarioException.java
-C:\Users\arthu\OneDrive\Documentos\GitHub\Trabalho_OO\planejamento_academico\src\main\java\com\trabalho_oo\Models\CodigoDisciplina.java
 C:\Users\arthu\OneDrive\Documentos\GitHub\Trabalho_OO\planejamento_academico\src\main\java\com\trabalho_oo\Validadores\ValidadorSimples.java
+C:\Users\arthu\OneDrive\Documentos\GitHub\Trabalho_OO\planejamento_academico\src\main\java\com\trabalho_oo\Utils\RuntimeTypeAdapterFactory.java
+C:\Users\arthu\OneDrive\Documentos\GitHub\Trabalho_OO\planejamento_academico\src\main\java\com\trabalho_oo\Persistence\MainPopulator.java
 C:\Users\arthu\OneDrive\Documentos\GitHub\Trabalho_OO\planejamento_academico\src\main\java\com\trabalho_oo\exceptions\PreRequisitoNaoCumpridoException.java
+C:\Users\arthu\OneDrive\Documentos\GitHub\Trabalho_OO\planejamento_academico\src\main\java\com\trabalho_oo\Utils\GsonFactory.java
 C:\Users\arthu\OneDrive\Documentos\GitHub\Trabalho_OO\planejamento_academico\src\main\java\com\trabalho_oo\entities\Turma.java

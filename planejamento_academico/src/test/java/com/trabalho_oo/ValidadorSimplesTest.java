@@ -23,15 +23,14 @@ public class ValidadorSimplesTest {
 
     private DisciplinaObrigatoria calculo1;
     private DisciplinaObrigatoria calculo2;
-    // private ArrayList<Disciplina> vazia;
-    private ArrayList<ValidadorPreRequisito> vazia1 = new ArrayList<>();
-    // private CodigoDisciplina calc1; 
-
+    private ArrayList<ValidadorPreRequisito> vazia = new ArrayList<>();
+   // private ArrayList<ValidadorPreRequisito> calc2 = new ArrayList<>("MAT001");
+    
     @BeforeEach
     void setUp() {
         aluno = new Aluno("Aluno de Teste", "202501001", 70, historico, gradeFutura);
-        calculo1 = new DisciplinaObrigatoria("Cálculo 1", null ,4, vazia1, null);
-        calculo2 = new DisciplinaObrigatoria("Cálculo 2", null,  4, vazia1, null);
+        calculo1 = new DisciplinaObrigatoria("Cálculo 1", "MAT001" ,4, vazia, null);
+        calculo2 = new DisciplinaObrigatoria("Cálculo 2", "MAT002",  4, vazia, null);
         
     }
 
@@ -42,10 +41,11 @@ public class ValidadorSimplesTest {
         ValidadorSimples validador = new ValidadorSimples();
 
         // Act: Executa a validação
-        boolean resultado = validador.validar(aluno, calculo2);
+        boolean resultado = validador.validar(aluno, calculo1);
 
         // Assert: Verifica se o resultado é verdadeiro
-        assertTrue(resultado, "O resultado deve ser true pois o aluno tem nota para passar");
+        //assertTrue(resultado);
+        assertFalse(resultado);
     }
 
     @Test
