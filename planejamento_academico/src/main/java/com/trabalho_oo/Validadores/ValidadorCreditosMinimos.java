@@ -14,9 +14,9 @@ public class ValidadorCreditosMinimos implements ValidadorPreRequisito{
     @Override
     public boolean validar(Aluno aluno, Disciplina disciplina) {
         int creditosAcumulados = 0;
-        for (Disciplina cursada : aluno.getHistorico().keySet()) {
+        for (String cursada : aluno.getHistorico().keySet()) {
             if (aluno.getHistorico().get(cursada) >= NOTA_MINIMA) {
-                creditosAcumulados += cursada.getCargaHorariaSemanal();
+                creditosAcumulados += disciplina.getCargaHorariaSemanal();
             }
         }
         return creditosAcumulados >= this.creditosMinimos;

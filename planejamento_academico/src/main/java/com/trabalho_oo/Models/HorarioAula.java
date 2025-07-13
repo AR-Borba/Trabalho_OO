@@ -13,18 +13,15 @@ public class HorarioAula {
         this.horaFimAula = horaFimAula;
     }
 
-    public Object getDiaDaSemana() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'getDiaDaSemana'");
+    public DiaDaSemana getDiaDaSemana() {
+        return diaDaAula;
     }
 
     public LocalTime getHorarioInicio() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'getHorarioInicio'");
+        return horaInicioAula;
     }
 
     public LocalTime getHorarioFim() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'getHorarioFim'");
+        return horaFimAula;
     }
 }

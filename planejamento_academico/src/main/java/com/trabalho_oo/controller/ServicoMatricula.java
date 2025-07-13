@@ -1,6 +1,7 @@
 package com.trabalho_oo.controller;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -17,30 +18,56 @@ public class ServicoMatricula {
         List<Turma> turmasConfirmadas = new ArrayList<>();
         Map<String, String> disciplinasRejeitadas = new HashMap<>();
         int cargaHorariaAtual = 0;
-        
-        for(Turma turma : turmasDesejadas) {
+
+        for (Turma turma : turmasDesejadas) {
             try {
-                validarPreRequisitos(aluno);
-                validarCoRequisitos(aluno, turma.getDisciplina().getCoRequisitos());
-                verificarConflito(turma, turmasConfirmadas);
-                validarCargaHoraria(aluno, turma.getDisciplina(), cargaHorariaAtual);
+                // Validações
                 validarVagas(turma);
+                if (!turma.getDisciplina().podeSerCursadoPor(aluno)) {
+                    throw new PreRequisitoNaoCumpridoException();
+                }
+                validarCoRequisitos(aluno, turma.getDisciplina().getCoRequisitos());
+                validarCargaHoraria(aluno, turma.getDisciplina(), cargaHorariaAtual);
+                verificarConflito(turma, turmasConfirmadas);
                 
-                cargaHorariaAtual += turma.getDisciplina().getCargaHorariaSemanal();
+                // Se tudo deu certo, confirma a matrícula
                 turmasConfirmadas.add(turma);
-            } catch (PreRequisitoNaoCumpridoException | CoRequisitoNaoAtendidoException | ConflitoDeHorarioException | CargaHorariaExcedidaException | TurmaCheiaException e) {
+                cargaHorariaAtual += turma.getDisciplina().getCargaHorariaSemanal();
+                
+            } catch (MatriculaException e) {
                 disciplinasRejeitadas.put(turma.getDisciplina().getNomeDisciplina(), e.getMessage());
             }
         }
 
-        System.out.println("IMPRIME RELATÓRIO DE MATRÍCULA");
-        System.out.println("Disciplinas Matriculadas:");
-        for (Turma turma : turmasConfirmadas) 
-            System.out.println("Matriculado em: " + turma.getDisciplina().getNomeDisciplina());
-        System.out.println("Disciplinas Rejeitadas:");
-        for (Map.Entry<String, String> entry : disciplinasRejeitadas.entrySet()) {
-            System.out.println("Disciplina: " + entry.getKey() + " - Motivo: " + entry.getValue());
+        aluno.setPlanejamento(turmasConfirmadas);
+        // Chama o novo método para imprimir o relatório formatado
+        imprimirRelatorio(aluno, turmasConfirmadas, disciplinasRejeitadas);
+    }
+
+     private void imprimirRelatorio(Aluno aluno, List<Turma> confirmadas, Map<String, String> rejeitadas) {
+        System.out.println("\n=======================================================");
+        System.out.println("### Relatório de Matrícula: " + aluno.getNomeAluno() + " ###");
+        System.out.println("=======================================================");
+
+        System.out.println("\n--- DISCIPLINAS MATRICULADAS ---");
+        if (confirmadas.isEmpty()) {
+            System.out.println("Nenhuma disciplina matriculada.");
+        } else {
+            for (Turma turma : confirmadas) {
+                // Formato detalhado para as disciplinas aceitas
+                System.out.println("  - " + turma.getDisciplina().getNomeDisciplina() + " (Turma " + turma.getId() + ")");
+            }
         }
+        
+        System.out.println("\n--- DISCIPLINAS REJEITADAS ---");
+        if (rejeitadas.isEmpty()) {
+            System.out.println("Nenhuma disciplina rejeitada.");
+        } else {
+            // Mantém o formato detalhado para as disciplinas rejeitadas
+            rejeitadas.forEach((disciplina, motivo) -> 
+                System.out.println("  - " + disciplina + " | Motivo: " + motivo));
+        }
+        System.out.println("=======================================================\n");
     }
 
     private void validarPreRequisitos(Aluno aluno) throws PreRequisitoNaoCumpridoException{

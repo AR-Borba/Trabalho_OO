@@ -11,14 +11,14 @@ public class Aluno {
     private String nomeAluno;
     private String matricula;
     private int cargaHorariaMaxima = 20;
-    private Map<Disciplina, Double> historico = new HashMap<>();
+    private Map<String, Double> historico = new HashMap<>();
     private List<Turma> gradeFutura;
 
     public Aluno() {
 
     }
-    
-    public Aluno(String nomeAluno, String matricula, int cargaHorariaMaxima, Map<Disciplina, Double> historico,
+
+    public Aluno(String nomeAluno, String matricula, int cargaHorariaMaxima, Map<String, Double> historico,
     List<Turma> gradeFutura) {
         this.nomeAluno = nomeAluno;
         this.matricula = matricula;
@@ -39,7 +39,7 @@ public class Aluno {
         return cargaHorariaMaxima;
     }
 
-    public Map<Disciplina, Double> getHistorico() {
+    public Map<String, Double> getHistorico() {
         return historico;
     }
 
@@ -47,7 +47,7 @@ public class Aluno {
         return gradeFutura;
     }
 
-    public boolean isAprovado(Disciplina d) {
+    public boolean isAprovado(String d) {
         if(historico.get(d) == null)
             return false;
         if(historico.get(d) >= 60.0)
@@ -55,7 +55,7 @@ public class Aluno {
         return false;
     }
 
-    public void adicionarAoHistorico(Disciplina d, double nota) {
+    public void adicionarAoHistorico(String d, double nota) {
         if(historico.get(d) == null || historico.get(d) < nota)
             historico.put(d, nota);
     }

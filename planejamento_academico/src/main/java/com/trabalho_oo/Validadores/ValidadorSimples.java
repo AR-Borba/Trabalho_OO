@@ -19,6 +19,6 @@ public class ValidadorSimples implements ValidadorPreRequisito {
         if(this.preRequisito == null) {
             return true;
         }
-        return aluno.isAprovado(this.preRequisito);
+        return aluno.isAprovado(this.preRequisito.getCodigo());
     }
 }
