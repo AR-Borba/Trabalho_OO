@@ -25,7 +25,7 @@ public class ValidadorLogicoORTest {
     private DisciplinaObrigatoria circuitosDigitais;
     private DisciplinaObrigatoria eletronicaDigital;
     private ArrayList<ValidadorPreRequisito> vazia = new ArrayList<>();
-
+    private List<Disciplina> preRequisitos ;
     
     @BeforeEach
     void setUp() {
@@ -36,9 +36,9 @@ public class ValidadorLogicoORTest {
     }
     
     @Test
-    void deveRetornarTrueSePreRequisitoFoiAprovado1() {
+    void Retorna_True_Para_PreRequisito_Aprovado1() {
         aluno.adicionarAoHistorico(circuitosDigitais, 70.0);
-        ValidadorLogicoOR validador = new ValidadorLogicoOR();
+        ValidadorLogicoOR validador = new ValidadorLogicoOR(preRequisitos);
 
         boolean resultado = validador.validar(aluno, organizacaoComputadores);
 
@@ -46,10 +46,28 @@ public class ValidadorLogicoORTest {
     }
 
     @Test
-    void deveRetornarTrueSePreRequisitoFoiAprovado2() {
-
+    void Retorna_True_Para_PreRequisito_Aprovado2() {
         aluno.adicionarAoHistorico(eletronicaDigital, 80);
-        ValidadorLogicoOR validador = new ValidadorLogicoOR();
+        ValidadorLogicoOR validador = new ValidadorLogicoOR(preRequisitos);
+
+        boolean resultado = validador.validar(aluno, organizacaoComputadores);
+
+        assertTrue(resultado);
+    }
+
+    @Test
+    void Retorna_False_Para_PreRequisito_Reprovado() {
+        aluno.adicionarAoHistorico(eletronicaDigital, 55);
+        ValidadorLogicoOR validador = new ValidadorLogicoOR(preRequisitos);
+
+        boolean resultado = validador.validar(aluno, organizacaoComputadores);
+
+        assertFalse(resultado);
+    }
+
+    @Test
+    void Retorna_False_Para_Nenhum_Requisito_Cursado() {
+        ValidadorLogicoOR validador = new ValidadorLogicoOR(preRequisitos);
 
         boolean resultado = validador.validar(aluno, organizacaoComputadores);
 
