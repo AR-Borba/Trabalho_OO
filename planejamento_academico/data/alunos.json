@@ -2,10 +2,10 @@
   {
     "nomeAluno": "João Caloiro",
     "matricula": "202501001",
-    "cargaHorariaMaxima": 24,
+    "cargaHorariaMaxima": 200,
     "historico": {
-      "com.trabalho_oo.entities.Disciplinas.DisciplinaObrigatoria@77d8e50c": 85.0,
-      "com.trabalho_oo.entities.Disciplinas.DisciplinaObrigatoria@87200d6f": 70.0
+      "MAT154": 70.0,
+      "DCC199": 85.0
     },
     "gradeFutura": [
       {
@@ -169,14 +169,14 @@
   {
     "nomeAluno": "Maria Veterana",
     "matricula": "202301005",
-    "cargaHorariaMaxima": 28,
+    "cargaHorariaMaxima": 200,
     "historico": {
-      "com.trabalho_oo.entities.Disciplinas.DisciplinaObrigatoria@77d8e50c": 95.0,
-      "com.trabalho_oo.entities.Disciplinas.DisciplinaObrigatoria@77d8e04c": 80.0,
-      "com.trabalho_oo.entities.Disciplinas.DisciplinaObrigatoria@77d8e7ad": 90.0,
-      "com.trabalho_oo.entities.Disciplinas.DisciplinaObrigatoria@77d8e04d": 88.0,
-      "com.trabalho_oo.entities.Disciplinas.DisciplinaObrigatoria@77d8e06e": 92.0,
-      "com.trabalho_oo.entities.Disciplinas.DisciplinaObrigatoria@77d8e412": 75.0
+      "DCC199": 95.0,
+      "DCC012": 80.0,
+      "DCC200": 90.0,
+      "DCC013": 88.0,
+      "DCC025": 92.0,
+      "DCC117": 75.0
     },
     "gradeFutura": [
       {
