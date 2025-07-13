@@ -29,34 +29,33 @@ public class ValidadorCorequisitoTest {
     private ArrayList<ValidadorPreRequisito> vazia = new ArrayList<>();
     private Turma algIIsalaTurma;
     private Turma algIIpraticaTurma;
+    private Turma turmaVazia;
     private DiaDaSemana diaSemana = DiaDaSemana.SEGUNDA;
     private LocalTime horarioInicio;
 
     @BeforeEach
     void setUp() {
-        aluno             = new Aluno("Aluno de Teste", "202501001", 70, historico, gradeFutura);
         algIIsala         = new DisciplinaObrigatoria("Algoritmos II - Sala", "DCC200" ,4, vazia, null);
         algIIpratica      = new DisciplinaObrigatoria("Algoritmos II - Pratica", "DCC201" ,4, vazia, null);        
         algIIsalaTurma    = new Turma('A', 30, 0, diaSemana, horarioInicio, horarioInicio, "Sala 101", algIIsala);
-        algIIpraticaTurma = new Turma('A', 30, 0, diaSemana, horarioInicio, horarioInicio, "Sala 101", algIIsala);
-        gradeFutura       = new ArrayList<>();
-        gradeFutura.add(algIIsalaTurma);
-        gradeFutura.add(algIIpraticaTurma);
+        algIIpraticaTurma = new Turma('A', 30, 0, diaSemana, horarioInicio, horarioInicio, "Sala 102", algIIpratica);
+        gradeFutura       = List.of(algIIpraticaTurma, algIIsalaTurma);
+        aluno             = new Aluno("Aluno de Teste", "202501001", 70, historico, gradeFutura);
     }
 
     @Test
     void Retorna_True_Para_CoRequisito_Matriculado() {
-        aluno.adicionarAoPlanejamento(null);
+        aluno.adicionarAoPlanejamento(algIIpraticaTurma);
         ValidadorCorequisito validador = new ValidadorCorequisito(algIIsala);
 
         boolean resultado = validador.validar(aluno, algIIpratica);
         
-    //     assertTrue(resultado);
-    // }
+        assertTrue(resultado);
+    }
 
     @Test
     void Retorna_False_Para_CoRequisito_NAO_Matriculado() {
-        aluno.adicionarAoPlanejamento(null);
+        aluno.adicionarAoPlanejamento(turmaVazia);
         ValidadorCorequisito validador = new ValidadorCorequisito(algIIsala);
 
         boolean resultado = validador.validar(aluno, algIIpratica);

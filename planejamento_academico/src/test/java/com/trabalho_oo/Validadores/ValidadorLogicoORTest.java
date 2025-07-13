@@ -25,7 +25,7 @@ public class ValidadorLogicoORTest {
     private DisciplinaObrigatoria circuitosDigitais;
     private DisciplinaObrigatoria eletronicaDigital;
     private ArrayList<ValidadorPreRequisito> vazia = new ArrayList<>();
-    private List<Disciplina> preRequisitos ;
+    private List<Disciplina> preRequisitos;
     
     @BeforeEach
     void setUp() {
@@ -33,6 +33,7 @@ public class ValidadorLogicoORTest {
         organizacaoComputadores = new DisciplinaObrigatoria("Organização de Computadors", "DCC070" ,4, vazia, null);
         circuitosDigitais = new DisciplinaObrigatoria("Circuitos digitais", "DCC122",  4, vazia, null);
         eletronicaDigital = new DisciplinaObrigatoria("Eletrônica Digital", "DCC123",  4, vazia, null);
+        preRequisitos = List.of(circuitosDigitais, eletronicaDigital);
     }
     
     @Test

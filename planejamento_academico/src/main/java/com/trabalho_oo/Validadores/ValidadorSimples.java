@@ -17,7 +17,7 @@ public class ValidadorSimples implements ValidadorPreRequisito {
     @Override
     public boolean validar(Aluno aluno, Disciplina disciplina) {
         if(this.preRequisito == null) {
-            return true;
+            return false;
         }
         return aluno.isAprovado(this.preRequisito);
     }

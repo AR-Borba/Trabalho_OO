@@ -14,9 +14,8 @@ public class ValidadorCorequisito implements ValidadorPreRequisito {
     @Override
     public boolean validar(Aluno aluno, Disciplina disciplina) {
         for( Turma turmaCoRequisto : aluno.getGradeFutura()) {
-            if (turmaCoRequisto.getDisciplina().equals(coRequisito)) {
+            if (turmaCoRequisto.getDisciplina() == coRequisito)
                 return true;
-            }
         }
         return false;
     }

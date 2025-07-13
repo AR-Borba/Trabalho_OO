@@ -25,20 +25,22 @@ public class ValidadorLogicoANDTest {
     private DisciplinaObrigatoria calcII;
     private DisciplinaObrigatoria algoritmos;
     private ArrayList<ValidadorPreRequisito> vazia = new ArrayList<>();
-    
+    private List<Disciplina> preRequisitos;
+
     @BeforeEach
     void setUp() {
         aluno = new Aluno("Aluno de Teste", "202501001", 70, historico, gradeFutura);
         calcNum = new DisciplinaObrigatoria("Cálculo numérico", "DCC008" ,4, vazia, null);
         calcII = new DisciplinaObrigatoria("Calculo II", "MAT002",  4, vazia, null);
         algoritmos = new DisciplinaObrigatoria("Algoritmos I", "DCC001",  4, vazia, null);
+        preRequisitos = List.of(calcII, algoritmos);
     }
     
     @Test
-    void deveRetornarTrueSePreRequisitoFoiAprovado1() {
+    void Retorna_True_Para_PreRequisito_Aprovado1() {
         aluno.adicionarAoHistorico(calcII, 70.0);
         aluno.adicionarAoHistorico(algoritmos, 70.0);
-        ValidadorLogicoAND validador = new ValidadorLogicoAND();
+        ValidadorLogicoAND validador = new ValidadorLogicoAND(preRequisitos);
 
         boolean resultado = validador.validar(aluno, calcNum);
 
@@ -46,10 +48,10 @@ public class ValidadorLogicoANDTest {
     }
 
     @Test
-    void deveRetornarTrueSePreRequisitoFoiAprovado2() {
+    void Retorna_FalsePara_PreRequisito_Reprovado2() {
         aluno.adicionarAoHistorico(calcII, 70.0);
         aluno.adicionarAoHistorico(algoritmos, 46.0);
-        ValidadorLogicoAND validador = new ValidadorLogicoAND();
+        ValidadorLogicoAND validador = new ValidadorLogicoAND(preRequisitos);
 
         boolean resultado = validador.validar(aluno, calcNum);
 
