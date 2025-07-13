@@ -18,14 +18,14 @@ import com.trabalho_oo.entities.Disciplinas.DisciplinaObrigatoria;
 
 public class ValidadorLogicoANDTest {
     private Aluno aluno;
-    private Map<Disciplina, Double> historico = new HashMap<>();
+    private Map<String, Double> historico = new HashMap<>();
     private List<Turma> gradeFutura;
 
     private DisciplinaObrigatoria calcNum;
     private DisciplinaObrigatoria calcII;
     private DisciplinaObrigatoria algoritmos;
     private ArrayList<ValidadorPreRequisito> vazia = new ArrayList<>();
-    private List<Disciplina> preRequisitos;
+    private List<String> preRequisitos;
 
     @BeforeEach
     void setUp() {
@@ -33,13 +33,13 @@ public class ValidadorLogicoANDTest {
         calcNum = new DisciplinaObrigatoria("Cálculo numérico", "DCC008" ,4, vazia, null);
         calcII = new DisciplinaObrigatoria("Calculo II", "MAT002",  4, vazia, null);
         algoritmos = new DisciplinaObrigatoria("Algoritmos I", "DCC001",  4, vazia, null);
-        preRequisitos = List.of(calcII, algoritmos);
+        preRequisitos = List.of("Calculo II", "Algoritmos I");
     }
     
     @Test
     void Retorna_True_Para_PreRequisito_Aprovado1() {
-        aluno.adicionarAoHistorico(calcII, 70.0);
-        aluno.adicionarAoHistorico(algoritmos, 70.0);
+        aluno.adicionarAoHistorico("Calculo II", 70.0);
+        aluno.adicionarAoHistorico("Algoritmos I", 70.0);
         ValidadorLogicoAND validador = new ValidadorLogicoAND(preRequisitos);
 
         boolean resultado = validador.validar(aluno, calcNum);
@@ -49,8 +49,8 @@ public class ValidadorLogicoANDTest {
 
     @Test
     void Retorna_FalsePara_PreRequisito_Reprovado2() {
-        aluno.adicionarAoHistorico(calcII, 70.0);
-        aluno.adicionarAoHistorico(algoritmos, 46.0);
+        aluno.adicionarAoHistorico("Calculo II", 70.0);
+        aluno.adicionarAoHistorico("Algoritmos I", 46.0);
         ValidadorLogicoAND validador = new ValidadorLogicoAND(preRequisitos);
 
         boolean resultado = validador.validar(aluno, calcNum);

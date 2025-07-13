@@ -6,17 +6,17 @@ import com.trabalho_oo.entities.Aluno;
 import com.trabalho_oo.entities.Disciplinas.Disciplina;
 
 public class ValidadorLogicoAND implements ValidadorPreRequisito {
-    private List<Disciplina> preRequisitos;
+    private List<String> preRequisitos;
 
-    public ValidadorLogicoAND(List<Disciplina> preRequisitos) {
+    public ValidadorLogicoAND(List<String> preRequisitos) {
         this.preRequisitos = preRequisitos;
     }
 
     @Override
     public boolean validar(Aluno aluno, Disciplina disciplina) {
         boolean flag = false;
-        for (Disciplina cursada : aluno.getHistorico().keySet()){
-            for (Disciplina preRequisito : this.preRequisitos) {
+        for (String cursada : aluno.getHistorico().keySet()){
+            for (String preRequisito : this.preRequisitos) {
                     if (cursada == preRequisito){ 
                         if(aluno.isAprovado(cursada)) 
                             flag = true;

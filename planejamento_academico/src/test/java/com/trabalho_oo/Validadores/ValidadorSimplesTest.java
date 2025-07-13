@@ -18,7 +18,7 @@ import java.util.Map;
 public class ValidadorSimplesTest {
 
     private Aluno aluno;
-    private Map<Disciplina, Double> historico = new HashMap<>();
+    private Map<String, Double> historico = new HashMap<>();
     private List<Turma> gradeFutura;
 
     private DisciplinaObrigatoria calculo1;
@@ -34,7 +34,7 @@ public class ValidadorSimplesTest {
 
     @Test //caso padrao
     void Retorna_True_Para_PreRequisito_Aprovado() {
-        aluno.adicionarAoHistorico(calculo1, 70.0);
+        aluno.adicionarAoHistorico("Cálculo 1", 70.0);
         ValidadorSimples validador = new ValidadorSimples(calculo1);
 
         boolean resultado = validador.validar(aluno, calculo2);
@@ -44,7 +44,7 @@ public class ValidadorSimplesTest {
 
     @Test // reprovado na disciplina anterior
     void Retorna_False_Para_PreRequisito_Reprovado() {
-        aluno.adicionarAoHistorico(calculo1, 30);
+        aluno.adicionarAoHistorico("Cálculo 1", 30);
         ValidadorSimples validador = new ValidadorSimples(calculo1);
 
         boolean resultado = validador.validar(aluno, calculo2);

@@ -18,7 +18,7 @@ import com.trabalho_oo.entities.Disciplinas.DisciplinaObrigatoria;
 
 public class ValidadorLogicoORTest {
     private Aluno aluno;
-    private Map<Disciplina, Double> historico = new HashMap<>();
+    private Map<String, Double> historico = new HashMap<>();
     private List<Turma> gradeFutura;
 
     private DisciplinaObrigatoria organizacaoComputadores;
@@ -38,7 +38,7 @@ public class ValidadorLogicoORTest {
     
     @Test
     void Retorna_True_Para_PreRequisito_Aprovado1() {
-        aluno.adicionarAoHistorico(circuitosDigitais, 70.0);
+        aluno.adicionarAoHistorico("Circuitos digitais", 70.0);
         ValidadorLogicoOR validador = new ValidadorLogicoOR(preRequisitos);
 
         boolean resultado = validador.validar(aluno, organizacaoComputadores);
@@ -48,7 +48,7 @@ public class ValidadorLogicoORTest {
 
     @Test
     void Retorna_True_Para_PreRequisito_Aprovado2() {
-        aluno.adicionarAoHistorico(eletronicaDigital, 80);
+        aluno.adicionarAoHistorico("Eletrônica Digital", 80);
         ValidadorLogicoOR validador = new ValidadorLogicoOR(preRequisitos);
 
         boolean resultado = validador.validar(aluno, organizacaoComputadores);
@@ -58,7 +58,7 @@ public class ValidadorLogicoORTest {
 
     @Test
     void Retorna_False_Para_PreRequisito_Reprovado() {
-        aluno.adicionarAoHistorico(eletronicaDigital, 55);
+        aluno.adicionarAoHistorico("Eletrônica Digital", 55);
         ValidadorLogicoOR validador = new ValidadorLogicoOR(preRequisitos);
 
         boolean resultado = validador.validar(aluno, organizacaoComputadores);

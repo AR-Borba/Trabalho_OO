@@ -21,7 +21,7 @@ import com.trabalho_oo.entities.Disciplinas.DisciplinaObrigatoria;
 public class ValidadorCorequisitoTest {
 
     private Aluno aluno;
-    private Map<Disciplina, Double> historico = new HashMap<>();
+    private Map<String, Double> historico = new HashMap<>();
     private List<Turma> gradeFutura;
 
     private DisciplinaObrigatoria algIIsala;
@@ -42,7 +42,7 @@ public class ValidadorCorequisitoTest {
         gradeFutura       = List.of(algIIpraticaTurma, algIIsalaTurma);
         aluno             = new Aluno("Aluno de Teste", "202501001", 70, historico, gradeFutura);
     }
-
+    
     @Test
     void Retorna_True_Para_CoRequisito_Matriculado() {
         aluno.adicionarAoPlanejamento(algIIpraticaTurma);

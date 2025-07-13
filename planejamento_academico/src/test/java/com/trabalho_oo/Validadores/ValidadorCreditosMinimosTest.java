@@ -19,7 +19,7 @@ import com.trabalho_oo.entities.Disciplinas.DisciplinaObrigatoria;
 public class ValidadorCreditosMinimosTest {
 
     private Aluno aluno;
-    private Map<Disciplina, Double> historico = new HashMap<>();
+    private Map<String, Double> historico = new HashMap<>();
     private List<Turma> gradeFutura;
 
     private DisciplinaObrigatoria calculo1;
@@ -38,8 +38,8 @@ public class ValidadorCreditosMinimosTest {
 
     @Test
     void Retorna_True_Para_Creditos_Validos() {
-        aluno.adicionarAoHistorico(calculo1, 70.0);
-        aluno.adicionarAoHistorico(algoritmos, 70.0);
+        aluno.adicionarAoHistorico("Cálculo 1", 70.0);
+        aluno.adicionarAoHistorico("Algoritmos", 70.0);
         ValidadorCreditosMinimos validador = new ValidadorCreditosMinimos(8);
 
         boolean resultado = validador.validar(aluno, TCC);
@@ -49,8 +49,8 @@ public class ValidadorCreditosMinimosTest {
 
     @Test
     void Retorna_False_Para_Creditos_Insuficientes() {
-        aluno.adicionarAoHistorico(calculo1, 70.0);
-        aluno.adicionarAoHistorico(algoritmos, 70.0);
+        aluno.adicionarAoHistorico("Cálculo 1", 70.0);
+        aluno.adicionarAoHistorico("Algoritmos", 70.0);
         ValidadorCreditosMinimos validador = new ValidadorCreditosMinimos(20);
 
         boolean resultado = validador.validar(aluno, TCC);
