@@ -47,7 +47,9 @@ public class Aluno {
         return gradeFutura;
     }
 
-    private boolean isAprovado(Disciplina d) {
+    public boolean isAprovado(Disciplina d) {
+        if(historico.get(d) == null)
+            return false;
         if(historico.get(d) >= 60.0)
             return true;
         return false;
@@ -60,5 +62,9 @@ public class Aluno {
 
     public void adicionarAoPlanejamento(Turma t) {
         gradeFutura.add(t);
+    }
+
+    public void setPlanejamento(List<Turma> gradeFutura) {
+        this.gradeFutura = gradeFutura;
     }
 }

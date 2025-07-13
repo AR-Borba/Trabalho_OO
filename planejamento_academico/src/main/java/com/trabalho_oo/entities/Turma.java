@@ -7,6 +7,7 @@ import java.util.Set;
 import com.trabalho_oo.Models.DiaDaSemana;
 import com.trabalho_oo.Models.HorarioAula;
 import com.trabalho_oo.entities.Disciplinas.Disciplina;
+import com.trabalho_oo.exceptions.TurmaCheiaException;
 
 public class Turma {
     private char id;
@@ -29,6 +30,27 @@ public class Turma {
         this.disciplina = disciplina;
         
         horarioTurma.add(horarioNovo);
+    }
+
+    public void matricularAluno() throws TurmaCheiaException {
+        if(!isCheia()) {
+            alunosMatriculados++;
+        } else {
+            throw new TurmaCheiaException();
+        }
+    }
+
+    public boolean hasConflict(Turma outraTurma) {
+        for (HorarioAula horario : this.horarioTurma) {
+            for (HorarioAula outroHorario : outraTurma.getHorarioTurma()) {
+                if (horario.getDiaDaSemana() == outroHorario.getDiaDaSemana() &&
+                    horario.getHorarioInicio().isBefore(outroHorario.getHorarioFim()) &&
+                    horario.getHorarioFim().isAfter(outroHorario.getHorarioInicio())) {
+                    return true;
+                }
+            }
+        }
+        return false;
     }
     
     public char getId() {
