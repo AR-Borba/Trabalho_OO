@@ -60,7 +60,7 @@ public class Aluno {
             historico.put(d, nota);
     }
 
-    private void adicionarAoPlanejamento(Turma t) {
+    public void adicionarAoPlanejamento(Turma t) {
         gradeFutura.add(t);
     }
 
