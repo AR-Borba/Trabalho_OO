@@ -12,4 +12,19 @@ public class HorarioAula {
         this.horaInicioAula = horaInicioAula;
         this.horaFimAula = horaFimAula;
     }
+
+    public Object getDiaDaSemana() {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'getDiaDaSemana'");
+    }
+
+    public LocalTime getHorarioInicio() {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'getHorarioInicio'");
+    }
+
+    public LocalTime getHorarioFim() {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'getHorarioFim'");
+    }
 }

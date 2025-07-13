@@ -25,6 +25,8 @@ public abstract class Disciplina {
         this.preRequisitos = preRequisitos;
         this.coRequisitos = coRequisitos;
     }
+
+    public abstract int getPrecedencia();
     
     public String getNomeDisciplina() {
         return nomeDisciplina;
@@ -47,7 +49,14 @@ public abstract class Disciplina {
     }
     
     public boolean podeSerCursadoPor(Aluno aluno) {
-        // lógica de validação de requisitos
+        if(preRequisitos == null || preRequisitos.isEmpty())
+            return true;
+        for(ValidadorPreRequisito validador : preRequisitos) {
+            if(!validador.validar(aluno, this)) {
+                return false;
+            }
+        }
+
         return true;
     }
 
