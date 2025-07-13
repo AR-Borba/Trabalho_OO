@@ -3,11 +3,19 @@
 // import static org.junit.jupiter.api.Assertions.assertFalse;
 // import static org.junit.jupiter.api.Assertions.assertTrue;
 
+<<<<<<< HEAD
 // import java.time.LocalDateTime;
 // import java.util.ArrayList;
 // import java.util.HashMap;
 // import java.util.List;
 // import java.util.Map;
+=======
+import java.time.LocalTime;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+>>>>>>> 161a3c45513e618bdf8eeca6c0cda7d2dcd9c0d1
 
 // import org.junit.jupiter.api.BeforeEach;
 // import org.junit.jupiter.api.Test;
@@ -20,6 +28,7 @@
 
 // public class ValidadorCorequisitoTest {
 
+<<<<<<< HEAD
 //     // private Aluno aluno;
 //     // private Map<Disciplina, Double> historico = new HashMap<>();
 //     // private List<Turma> gradeFutura;
@@ -63,10 +72,43 @@
 //     //     ValidadorCreditosMinimos validador = new ValidadorCreditosMinimos(8);
 
 //     //     boolean resultado = validador.validar(aluno, TCC);
+=======
+    private Aluno aluno;
+    private Map<Disciplina, Double> historico = new HashMap<>();
+    private List<Turma> gradeFutura;
+
+    private DisciplinaObrigatoria algIIsala;
+    private DisciplinaObrigatoria algIIpratica;
+    private ArrayList<ValidadorPreRequisito> vazia = new ArrayList<>();
+    private Turma algIIsalaTurma;
+    private Turma algIIpraticaTurma;
+    private DiaDaSemana diaSemana = DiaDaSemana.SEGUNDA;
+    private LocalTime horarioInicio;
+
+    @BeforeEach
+    void setUp() {
+        aluno             = new Aluno("Aluno de Teste", "202501001", 70, historico, gradeFutura);
+        algIIsala         = new DisciplinaObrigatoria("Algoritmos II - Sala", "DCC200" ,4, vazia, null);
+        algIIpratica      = new DisciplinaObrigatoria("Algoritmos II - Pratica", "DCC201" ,4, vazia, null);        
+        algIIsalaTurma    = new Turma('A', 30, 0, diaSemana, horarioInicio, horarioInicio, "Sala 101", algIIsala);
+        algIIpraticaTurma = new Turma('A', 30, 0, diaSemana, horarioInicio, horarioInicio, "Sala 101", algIIsala);
+        gradeFutura       = new ArrayList<>();
+        gradeFutura.add(algIIsalaTurma);
+        gradeFutura.add(algIIpraticaTurma);
+    }
+
+    @Test
+    void Retorna_True_Para_CoRequisito_Matriculado() {
+        aluno.adicionarAoPlanejamento(null);
+        ValidadorCorequisito validador = new ValidadorCorequisito(algIIsala);
+
+        boolean resultado = validador.validar(aluno, algIIpratica);
+>>>>>>> 161a3c45513e618bdf8eeca6c0cda7d2dcd9c0d1
         
 //     //     assertTrue(resultado);
 //     // }
 
+<<<<<<< HEAD
 //     // @Test
 //     // void deveRetornarFalseSePreRequisitoFoiReprovado() {
 //     //     aluno.adicionarAoHistorico(calculo1, 70.0);
@@ -78,3 +120,15 @@
 //     //     assertFalse(resultado);
 //     // }
 // }
+=======
+    @Test
+    void Retorna_False_Para_CoRequisito_NAO_Matriculado() {
+        aluno.adicionarAoPlanejamento(null);
+        ValidadorCorequisito validador = new ValidadorCorequisito(algIIsala);
+
+        boolean resultado = validador.validar(aluno, algIIpratica);
+        
+        assertFalse(resultado);
+    }
+}
+>>>>>>> 161a3c45513e618bdf8eeca6c0cda7d2dcd9c0d1

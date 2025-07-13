@@ -37,7 +37,7 @@ public class ValidadorCreditosMinimosTest {
     }
 
     @Test
-    void deveRetornarTrueSePreRequisitoFoiAprovado() {
+    void Retorna_True_Para_Creditos_Validos() {
         aluno.adicionarAoHistorico(calculo1, 70.0);
         aluno.adicionarAoHistorico(algoritmos, 70.0);
         ValidadorCreditosMinimos validador = new ValidadorCreditosMinimos(8);
@@ -48,7 +48,7 @@ public class ValidadorCreditosMinimosTest {
     }
 
     @Test
-    void deveRetornarFalseSePreRequisitoFoiReprovado() {
+    void Retorna_False_Para_Creditos_Insuficientes() {
         aluno.adicionarAoHistorico(calculo1, 70.0);
         aluno.adicionarAoHistorico(algoritmos, 70.0);
         ValidadorCreditosMinimos validador = new ValidadorCreditosMinimos(20);
