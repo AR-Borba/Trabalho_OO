@@ -27,7 +27,6 @@ public class DisciplinaPersistence implements Persistence<Disciplina> {
             diretorio.mkdirs();
 
         Arquivo.salva(PATH, json);
-
     }
 
     @Override

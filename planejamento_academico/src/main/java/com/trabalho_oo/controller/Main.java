@@ -10,22 +10,17 @@ import com.trabalho_oo.entities.Disciplinas.Disciplina;
 
 import java.util.List;
 
-/**
- * Classe principal para executar a simulação de matrícula acadêmica.
- */
 public class Main {
 
     public static void main(String[] args) {
         System.out.println("====== INICIANDO SISTEMA DE SIMULAÇÃO DE MATRÍCULA ======");
 
-         // PASSO ADICIONAL: Carregar todas as disciplinas e popular o catálogo.
         System.out.println("Carregando catálogo de disciplinas...");
         Persistence<Disciplina> disciplinaPersistence = new DisciplinaPersistence();
         List<Disciplina> todasAsDisciplinas = disciplinaPersistence.findAll();
-        CatalogoDisciplinas.carregar(todasAsDisciplinas); // <<--- ADICIONE ESTA LINHA
+        CatalogoDisciplinas.carregar(todasAsDisciplinas);
         System.out.println(todasAsDisciplinas.size() + " disciplinas carregadas no catálogo.\n");
 
-        // Passo 1: Carregar os dados dos alunos a partir do arquivo JSON.
         System.out.println("Carregando dados dos alunos de alunos.json...");
         Persistence<Aluno> alunoPersistence = new AlunoPersistence();
         List<Aluno> todosOsAlunos = alunoPersistence.findAll();

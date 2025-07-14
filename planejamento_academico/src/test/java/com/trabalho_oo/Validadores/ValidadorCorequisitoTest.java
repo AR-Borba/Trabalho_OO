@@ -28,7 +28,6 @@ public class ValidadorCorequisitoTest {
     private ArrayList<ValidadorPreRequisito> vazia = new ArrayList<>();
     private Turma algIIsalaTurma;
     private Turma algIIpraticaTurma;
-    private Turma turmaVazia;
     private DiaDaSemana diaSemana = DiaDaSemana.SEGUNDA;
     private LocalTime horarioInicio;
 
