@@ -23,6 +23,7 @@ public class Arquivo {
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(filePath, false))) {
             writer.write(content);
         } catch (IOException e) {
+            System.out.println("Erro ao salvar o arquivo: " + filePath);
             e.printStackTrace();
         }
     }
