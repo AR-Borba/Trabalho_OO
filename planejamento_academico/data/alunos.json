@@ -1,45 +1,17 @@
 [
   {
-    "nomeAluno": "João Caloiro",
+    "nomeAluno": "João Calouro",
     "matricula": "202501001",
     "cargaHorariaMaxima": 200,
     "historico": {
-      "MAT154": 70.0,
       "DCC199": 85.0,
-      "DCC200": 70.0
+      "MAT154": 70.0
     },
     "gradeFutura": [
       {
         "id": "A",
-        "capacidadeMaxima": 60,
-        "alunosMatriculados": 0,
-        "horarioTurma": [
-          {
-            "diaDaAula": "SEGUNDA",
-            "horaInicioAula": "19:00",
-            "horaFimAula": "20:40"
-          }
-        ],
-        "salaAula": "Sala 301",
         "disciplina": {
-          "type": "OBRIGATORIA",
-          "nomeDisciplina": "ALGORITMO II",
-          "codigo": "DCC200",
-          "cargaHorariaSemanal": 90,
-          "preRequisitos": [
-            {
-              "validatorType": "SIMPLES",
-              "preRequisito": {
-                "type": "OBRIGATORIA",
-                "nomeDisciplina": "ALGORITMO I",
-                "codigo": "DCC199",
-                "cargaHorariaSemanal": 90,
-                "preRequisitos": [],
-                "coRequisitos": []
-              }
-            }
-          ],
-          "coRequisitos": []
+          "codigo": "DCC200"
         }
       }
     ]
@@ -50,7 +22,6 @@
     "cargaHorariaMaxima": 200,
     "historico": {
       "DCC199": 95.0,
-      "DCC012": 80.0,
       "DCC200": 90.0,
       "DCC013": 88.0,
       "DCC025": 92.0,
@@ -59,28 +30,8 @@
     "gradeFutura": [
       {
         "id": "A",
-        "capacidadeMaxima": 50,
-        "alunosMatriculados": 0,
-        "horarioTurma": [
-          {
-            "diaDaAula": "TERÇA",
-            "horaInicioAula": "21:00",
-            "horaFimAula": "22:40"
-          }
-        ],
-        "salaAula": "Sala 205",
         "disciplina": {
-          "type": "OBRIGATORIA",
-          "nomeDisciplina": "BANCO DE DADOS I",
-          "codigo": "DCC060",
-          "cargaHorariaSemanal": 60,
-          "preRequisitos": [
-            {
-              "validatorType": "AND",
-              "preRequisitos": []
-            }
-          ],
-          "coRequisitos": []
+          "codigo": "DCC060"
         }
       }
     ]
@@ -96,35 +47,8 @@
     "gradeFutura": [
       {
         "id": "A",
-        "capacidadeMaxima": 50,
-        "alunosMatriculados": 0,
-        "horarioTurma": [
-          {
-            "diaDaAula": "TERÇA",
-            "horaInicioAula": "21:00",
-            "horaFimAula": "22:40"
-          }
-        ],
-        "salaAula": "Sala 205",
         "disciplina": {
-          "type": "OBRIGATORIA",
-          "nomeDisciplina": "ESTRUTURA DE DADOS I",
-          "codigo": "DCC013",
-          "cargaHorariaSemanal": 60,
-          "preRequisitos": [
-            {
-              "validatorType": "SIMPLES",
-              "preRequisito": {
-                "type": "OBRIGATORIA",
-                "nomeDisciplina": "ALGORITMO II",
-                "codigo": "DCC200",
-                "cargaHorariaSemanal": 90,
-                "preRequisitos": [],
-                "coRequisitos": []
-              }
-            }
-          ],
-          "coRequisitos": []
+          "codigo": "DCC013"
         }
       }
     ]
@@ -135,50 +59,19 @@
     "cargaHorariaMaxima": 220,
     "historico": {
       "DCC199": 80.0,
-      "DCC200": 85.0,
-      "DCC025": 70.0
+      "DCC200": 85.0
     },
     "gradeFutura": [
       {
         "id": "A",
-        "capacidadeMaxima": 50,
-        "alunosMatriculados": 0,
-        "horarioTurma": [
-          {
-            "diaDaAula": "QUARTA",
-            "horaInicioAula": "19:00",
-            "horaFimAula": "20:40"
-          }
-        ],
-        "salaAula": "Sala 101",
         "disciplina": {
-          "type": "OBRIGATORIA",
-          "nomeDisciplina": "ORIENTAÇÃO A OBJETO I",
-          "codigo": "DCC025",
-          "cargaHorariaSemanal": 60,
-          "preRequisitos": [],
-          "coRequisitos": []
+          "codigo": "DCC025"
         }
       },
       {
         "id": "A",
-        "capacidadeMaxima": 30,
-        "alunosMatriculados": 0,
-        "horarioTurma": [
-          {
-            "diaDaAula": "QUARTA",
-            "horaInicioAula": "19:00",
-            "horaFimAula": "20:40"
-          }
-        ],
-        "salaAula": "Laboratório 2",
         "disciplina": {
-          "type": "ELETIVA",
-          "nomeDisciplina": "INTRODUÇÃO A INTELIGÊNCIA ARTIFICIAL",
-          "codigo": "DCC100",
-          "cargaHorariaSemanal": 60,
-          "preRequisitos": [],
-          "coRequisitos": []
+          "codigo": "DCC100"
         }
       }
     ]
@@ -193,28 +86,8 @@
     "gradeFutura": [
       {
         "id": "A",
-        "capacidadeMaxima": 50,
-        "alunosMatriculados": 0,
-        "horarioTurma": [
-          {
-            "diaDaAula": "SEGUNDA",
-            "horaInicioAula": "21:00",
-            "horaFimAula": "22:40"
-          }
-        ],
-        "salaAula": "Sala 206",
         "disciplina": {
-          "type": "OBRIGATORIA",
-          "nomeDisciplina": "BANCO DE DADOS I",
-          "codigo": "DCC060",
-          "cargaHorariaSemanal": 60,
-          "preRequisitos": [
-            {
-              "validatorType": "AND",
-              "preRequisitos": []
-            }
-          ],
-          "coRequisitos": []
+          "codigo": "DCC060"
         }
       }
     ]
