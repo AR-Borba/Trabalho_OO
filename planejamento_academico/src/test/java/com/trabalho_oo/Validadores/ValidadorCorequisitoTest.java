@@ -39,7 +39,9 @@ public class ValidadorCorequisitoTest {
         algIIpratica      = new DisciplinaObrigatoria("Algoritmos II - Pratica", "DCC201" ,4, vazia, null);        
         algIIsalaTurma    = new Turma('A', 30, 0, diaSemana, horarioInicio, horarioInicio, "Sala 101", algIIsala);
         algIIpraticaTurma = new Turma('A', 30, 0, diaSemana, horarioInicio, horarioInicio, "Sala 102", algIIpratica);
-        gradeFutura       = List.of(algIIpraticaTurma, algIIsalaTurma);
+        gradeFutura = new ArrayList<>();
+        gradeFutura.add(algIIsalaTurma);
+        gradeFutura.add(algIIpraticaTurma);
         aluno             = new Aluno("Aluno de Teste", "202501001", 70, historico, gradeFutura);
     }
     

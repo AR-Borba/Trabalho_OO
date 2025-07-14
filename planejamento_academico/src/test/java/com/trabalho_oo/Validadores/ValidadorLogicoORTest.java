@@ -38,7 +38,7 @@ public class ValidadorLogicoORTest {
     
     @Test
     void Retorna_True_Para_PreRequisito_Aprovado1() {
-        aluno.adicionarAoHistorico("Circuitos digitais", 70.0);
+        aluno.adicionarAoHistorico("DCC122", 70.0);
         ValidadorLogicoOR validador = new ValidadorLogicoOR(preRequisitos);
 
         boolean resultado = validador.validar(aluno, organizacaoComputadores);
@@ -48,7 +48,7 @@ public class ValidadorLogicoORTest {
 
     @Test
     void Retorna_True_Para_PreRequisito_Aprovado2() {
-        aluno.adicionarAoHistorico("Eletrônica Digital", 80);
+        aluno.adicionarAoHistorico("DCC123", 80);
         ValidadorLogicoOR validador = new ValidadorLogicoOR(preRequisitos);
 
         boolean resultado = validador.validar(aluno, organizacaoComputadores);
@@ -58,7 +58,7 @@ public class ValidadorLogicoORTest {
 
     @Test
     void Retorna_False_Para_PreRequisito_Reprovado() {
-        aluno.adicionarAoHistorico("Eletrônica Digital", 55);
+        aluno.adicionarAoHistorico("DCC123", 55);
         ValidadorLogicoOR validador = new ValidadorLogicoOR(preRequisitos);
 
         boolean resultado = validador.validar(aluno, organizacaoComputadores);

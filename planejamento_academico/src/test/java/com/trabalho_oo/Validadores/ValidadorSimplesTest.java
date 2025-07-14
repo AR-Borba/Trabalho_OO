@@ -28,13 +28,13 @@ public class ValidadorSimplesTest {
     @BeforeEach
     void setUp() {
         aluno = new Aluno("Aluno de Teste", "202501001", 70, historico, gradeFutura);
-        calculo1 = new DisciplinaObrigatoria("Cálculo 1", "MAT001" ,4, vazia, null);
-        calculo2 = new DisciplinaObrigatoria("Cálculo 2", "MAT002",  4, vazia, null);  
+        calculo1 = new DisciplinaObrigatoria("Cálculo 1", "MAT154" ,4, vazia, null);
+        calculo2 = new DisciplinaObrigatoria("Cálculo 2", "MAT156",  4, vazia, null);  
     }
 
     @Test //caso padrao
     void Retorna_True_Para_PreRequisito_Aprovado() {
-        aluno.adicionarAoHistorico("Cálculo 1", 70.0);
+        aluno.adicionarAoHistorico("MAT154", 70.0);
         ValidadorSimples validador = new ValidadorSimples(calculo1);
 
         boolean resultado = validador.validar(aluno, calculo2);
@@ -44,7 +44,7 @@ public class ValidadorSimplesTest {
 
     @Test // reprovado na disciplina anterior
     void Retorna_False_Para_PreRequisito_Reprovado() {
-        aluno.adicionarAoHistorico("Cálculo 1", 30);
+        aluno.adicionarAoHistorico("MAT154", 30);
         ValidadorSimples validador = new ValidadorSimples(calculo1);
 
         boolean resultado = validador.validar(aluno, calculo2);
