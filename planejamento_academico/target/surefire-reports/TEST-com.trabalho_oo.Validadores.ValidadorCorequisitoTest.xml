@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<<<<<<< HEAD
 <testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report-3.0.xsd" version="3.0" name="com.trabalho_oo.Validadores.ValidadorCorequisitoTest" time="0.069" tests="2" errors="0" skipped="0" failures="0">
+=======
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report-3.0.xsd" version="3.0" name="com.trabalho_oo.Validadores.ValidadorCorequisitoTest" time="0.107" tests="2" errors="0" skipped="0" failures="0">
+>>>>>>> 2fa07609d6eba97b7298635f6e849f39f8513f98
   <properties>
     <property name="java.specification.version" value="21"/>
     <property name="sun.cpu.isalist" value="amd64"/>
@@ -15,7 +19,11 @@
     <property name="sun.java.launcher" value="SUN_STANDARD"/>
     <property name="user.country" value="BR"/>
     <property name="sun.boot.library.path" value="C:\Program Files\Java\jdk-21\bin"/>
+<<<<<<< HEAD
     <property name="sun.java.command" value="C:\Users\arthu\AppData\Local\Temp\surefire5908740507264180555\surefirebooter-20250713225443659_3.jar C:\Users\arthu\AppData\Local\Temp\surefire5908740507264180555 2025-07-13T22-54-43_531-jvmRun1 surefire-20250713225443659_1tmp surefire_0-20250713225443659_2tmp"/>
+=======
+    <property name="sun.java.command" value="C:\Users\enzog\AppData\Local\Temp\surefire7016922996670351945\surefirebooter-20250713214834835_3.jar C:\Users\enzog\AppData\Local\Temp\surefire7016922996670351945 2025-07-13T21-48-34_500-jvmRun1 surefire-20250713214834835_1tmp surefire_0-20250713214834835_2tmp"/>
+>>>>>>> 2fa07609d6eba97b7298635f6e849f39f8513f98
     <property name="jdk.debug" value="release"/>
     <property name="surefire.test.class.path" value="C:\Users\arthu\OneDrive\Documentos\GitHub\Trabalho_OO\planejamento_academico\target\test-classes;C:\Users\arthu\OneDrive\Documentos\GitHub\Trabalho_OO\planejamento_academico\target\classes;C:\Users\arthu\.m2\repository\org\junit\jupiter\junit-jupiter-api\5.10.2\junit-jupiter-api-5.10.2.jar;C:\Users\arthu\.m2\repository\org\opentest4j\opentest4j\1.3.0\opentest4j-1.3.0.jar;C:\Users\arthu\.m2\repository\org\junit\platform\junit-platform-commons\1.10.2\junit-platform-commons-1.10.2.jar;C:\Users\arthu\.m2\repository\org\apiguardian\apiguardian-api\1.1.2\apiguardian-api-1.1.2.jar;C:\Users\arthu\.m2\repository\org\junit\jupiter\junit-jupiter-engine\5.10.2\junit-jupiter-engine-5.10.2.jar;C:\Users\arthu\.m2\repository\org\junit\platform\junit-platform-engine\1.10.2\junit-platform-engine-1.10.2.jar;C:\Users\arthu\.m2\repository\com\google\code\gson\gson\2.10\gson-2.10.jar;"/>
     <property name="sun.cpu.endian" value="little"/>
@@ -30,7 +38,11 @@
     <property name="line.separator" value="&#10;"/>
     <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
     <property name="java.specification.name" value="Java Platform API Specification"/>
+<<<<<<< HEAD
     <property name="surefire.real.class.path" value="C:\Users\arthu\AppData\Local\Temp\surefire5908740507264180555\surefirebooter-20250713225443659_3.jar"/>
+=======
+    <property name="surefire.real.class.path" value="C:\Users\enzog\AppData\Local\Temp\surefire7016922996670351945\surefirebooter-20250713214834835_3.jar"/>
+>>>>>>> 2fa07609d6eba97b7298635f6e849f39f8513f98
     <property name="user.script" value=""/>
     <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
     <property name="java.runtime.version" value="21.0.7+8-LTS-245"/>
@@ -58,6 +70,11 @@
     <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
     <property name="java.class.version" value="65.0"/>
   </properties>
+<<<<<<< HEAD
   <testcase name="Retorna_False_Para_CoRequisito_NAO_Matriculado" classname="com.trabalho_oo.Validadores.ValidadorCorequisitoTest" time="0.033"/>
   <testcase name="Retorna_True_Para_CoRequisito_Matriculado" classname="com.trabalho_oo.Validadores.ValidadorCorequisitoTest" time="0.002"/>
+=======
+  <testcase name="Retorna_True_Para_CoRequisito_NAO_Matriculado" classname="com.trabalho_oo.Validadores.ValidadorCorequisitoTest" time="0.051"/>
+  <testcase name="Retorna_True_Para_CoRequisito_Matriculado" classname="com.trabalho_oo.Validadores.ValidadorCorequisitoTest" time="0.001"/>
+>>>>>>> 2fa07609d6eba97b7298635f6e849f39f8513f98
 </testsuite>
