@@ -1,12 +1,12 @@
 -------------------------------------------------------------------------------
 Test set: com.trabalho_oo.Validadores.ValidadorCorequisitoTest
 -------------------------------------------------------------------------------
-Tests run: 2, Failures: 0, Errors: 2, Skipped: 0, Time elapsed: 0.071 s <<< FAILURE! -- in com.trabalho_oo.Validadores.ValidadorCorequisitoTest
-com.trabalho_oo.Validadores.ValidadorCorequisitoTest.Retorna_False_Para_CoRequisito_NAO_Matriculado -- Time elapsed: 0.030 s <<< ERROR!
+Tests run: 2, Failures: 0, Errors: 2, Skipped: 0, Time elapsed: 0.131 s <<< FAILURE! -- in com.trabalho_oo.Validadores.ValidadorCorequisitoTest
+com.trabalho_oo.Validadores.ValidadorCorequisitoTest.Retorna_False_Para_CoRequisito_NAO_Matriculado -- Time elapsed: 0.052 s <<< ERROR!
 java.lang.UnsupportedOperationException
 	at java.base/java.util.ImmutableCollections.uoe(ImmutableCollections.java:142)
 	at java.base/java.util.ImmutableCollections$AbstractImmutableCollection.add(ImmutableCollections.java:147)
-	at com.trabalho_oo.entities.Aluno.adicionarAoPlanejamento(Aluno.java:62)
+	at com.trabalho_oo.entities.Aluno.adicionarAoPlanejamento(Aluno.java:64)
 	at com.trabalho_oo.Validadores.ValidadorCorequisitoTest.Retorna_False_Para_CoRequisito_NAO_Matriculado(ValidadorCorequisitoTest.java:58)
 	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
 	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
@@ -16,7 +16,7 @@ com.trabalho_oo.Validadores.ValidadorCorequisitoTest.Retorna_True_Para_CoRequisi
 java.lang.UnsupportedOperationException
 	at java.base/java.util.ImmutableCollections.uoe(ImmutableCollections.java:142)
 	at java.base/java.util.ImmutableCollections$AbstractImmutableCollection.add(ImmutableCollections.java:147)
-	at com.trabalho_oo.entities.Aluno.adicionarAoPlanejamento(Aluno.java:62)
+	at com.trabalho_oo.entities.Aluno.adicionarAoPlanejamento(Aluno.java:64)
 	at com.trabalho_oo.Validadores.ValidadorCorequisitoTest.Retorna_True_Para_CoRequisito_Matriculado(ValidadorCorequisitoTest.java:48)
 	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
 	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
