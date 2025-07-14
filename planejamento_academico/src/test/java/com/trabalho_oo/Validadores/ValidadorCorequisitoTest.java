@@ -55,12 +55,14 @@ public class ValidadorCorequisitoTest {
     }
 
     @Test
-    void Retorna_True_Para_CoRequisito_NAO_Matriculado() {
-        aluno.adicionarAoPlanejamento(turmaVazia);
+    void Retorna_False_Para_CoRequisito_NAO_Matriculado() {
+        List<Turma> planejamentoIncompleto = new ArrayList<>();
+        planejamentoIncompleto.add(algIIpraticaTurma);
+        aluno.setPlanejamento(planejamentoIncompleto);
         ValidadorCorequisito validador = new ValidadorCorequisito(algIIsala);
 
         boolean resultado = validador.validar(aluno, algIIpratica);
         
-        assertTrue(resultado);
+        assertFalse(resultado);
     }
 }

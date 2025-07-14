@@ -14,17 +14,11 @@ public class ValidadorLogicoAND implements ValidadorPreRequisito {
 
     @Override
     public boolean validar(Aluno aluno, Disciplina disciplina) {
-        boolean flag = false;
-        for (String cursada : aluno.getHistorico().keySet()){
-            for (String preRequisito : this.preRequisitos) {
-                    if (cursada == preRequisito){ 
-                        if(aluno.isAprovado(cursada)) 
-                            flag = true;
-                        else
-                            return false;
-                    }
-                }
+        for (String codigoPreRequisito : this.preRequisitos) {
+            if (!aluno.isAprovado(codigoPreRequisito)) {
+                return false;
             }
-        return flag;
+        }
+        return true;
     }
 }
