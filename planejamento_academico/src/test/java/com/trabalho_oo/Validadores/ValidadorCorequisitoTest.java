@@ -15,7 +15,6 @@ import org.junit.jupiter.api.Test;
 import com.trabalho_oo.Models.DiaDaSemana;
 import com.trabalho_oo.entities.Aluno;
 import com.trabalho_oo.entities.Turma;
-import com.trabalho_oo.entities.Disciplinas.Disciplina;
 import com.trabalho_oo.entities.Disciplinas.DisciplinaObrigatoria;
 
 public class ValidadorCorequisitoTest {
@@ -44,7 +43,7 @@ public class ValidadorCorequisitoTest {
         gradeFutura.add(algIIpraticaTurma);
         aluno             = new Aluno("Aluno de Teste", "202501001", 70, historico, gradeFutura);
     }
-    
+
     @Test
     void Retorna_True_Para_CoRequisito_Matriculado() {
         aluno.adicionarAoPlanejamento(algIIpraticaTurma);

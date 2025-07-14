@@ -1,6 +1,7 @@
 -------------------------------------------------------------------------------
 Test set: com.trabalho_oo.Validadores.ValidadorCorequisitoTest
 -------------------------------------------------------------------------------
+<<<<<<< HEAD
 Tests run: 2, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 0.161 s <<< FAILURE! -- in com.trabalho_oo.Validadores.ValidadorCorequisitoTest
 com.trabalho_oo.Validadores.ValidadorCorequisitoTest.Retorna_False_Para_CoRequisito_NAO_Matriculado -- Time elapsed: 0.070 s <<< FAILURE!
 org.opentest4j.AssertionFailedError: expected: <false> but was: <true>
@@ -11,6 +12,38 @@ org.opentest4j.AssertionFailedError: expected: <false> but was: <true>
 	at org.junit.jupiter.api.AssertFalse.assertFalse(AssertFalse.java:31)
 	at org.junit.jupiter.api.Assertions.assertFalse(Assertions.java:231)
 	at com.trabalho_oo.Validadores.ValidadorCorequisitoTest.Retorna_False_Para_CoRequisito_NAO_Matriculado(ValidadorCorequisitoTest.java:65)
+=======
+<<<<<<< HEAD
+Tests run: 2, Failures: 0, Errors: 2, Skipped: 0, Time elapsed: 0.063 s <<< FAILURE! -- in com.trabalho_oo.Validadores.ValidadorCorequisitoTest
+com.trabalho_oo.Validadores.ValidadorCorequisitoTest.Retorna_False_Para_CoRequisito_NAO_Matriculado -- Time elapsed: 0.026 s <<< ERROR!
+=======
+Tests run: 2, Failures: 0, Errors: 2, Skipped: 0, Time elapsed: 0.131 s <<< FAILURE! -- in com.trabalho_oo.Validadores.ValidadorCorequisitoTest
+com.trabalho_oo.Validadores.ValidadorCorequisitoTest.Retorna_False_Para_CoRequisito_NAO_Matriculado -- Time elapsed: 0.052 s <<< ERROR!
+>>>>>>> cae5ed49431aeb006908a3ea91e8a12ade9ddc9c
+java.lang.UnsupportedOperationException
+	at java.base/java.util.ImmutableCollections.uoe(ImmutableCollections.java:142)
+	at java.base/java.util.ImmutableCollections$AbstractImmutableCollection.add(ImmutableCollections.java:147)
+	at com.trabalho_oo.entities.Aluno.adicionarAoPlanejamento(Aluno.java:64)
+<<<<<<< HEAD
+	at com.trabalho_oo.Validadores.ValidadorCorequisitoTest.Retorna_False_Para_CoRequisito_NAO_Matriculado(ValidadorCorequisitoTest.java:57)
+=======
+	at com.trabalho_oo.Validadores.ValidadorCorequisitoTest.Retorna_False_Para_CoRequisito_NAO_Matriculado(ValidadorCorequisitoTest.java:58)
+>>>>>>> cae5ed49431aeb006908a3ea91e8a12ade9ddc9c
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+
+com.trabalho_oo.Validadores.ValidadorCorequisitoTest.Retorna_True_Para_CoRequisito_Matriculado -- Time elapsed: 0.001 s <<< ERROR!
+java.lang.UnsupportedOperationException
+	at java.base/java.util.ImmutableCollections.uoe(ImmutableCollections.java:142)
+	at java.base/java.util.ImmutableCollections$AbstractImmutableCollection.add(ImmutableCollections.java:147)
+	at com.trabalho_oo.entities.Aluno.adicionarAoPlanejamento(Aluno.java:64)
+<<<<<<< HEAD
+	at com.trabalho_oo.Validadores.ValidadorCorequisitoTest.Retorna_True_Para_CoRequisito_Matriculado(ValidadorCorequisitoTest.java:47)
+=======
+	at com.trabalho_oo.Validadores.ValidadorCorequisitoTest.Retorna_True_Para_CoRequisito_Matriculado(ValidadorCorequisitoTest.java:48)
+>>>>>>> cae5ed49431aeb006908a3ea91e8a12ade9ddc9c
+>>>>>>> 7db4b7010e4842507f4a586b00b835f1dda3a6b3
 	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
 	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
 	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
