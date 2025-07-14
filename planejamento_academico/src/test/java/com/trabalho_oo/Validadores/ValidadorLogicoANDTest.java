@@ -13,7 +13,7 @@ import org.junit.jupiter.api.Test;
 
 import com.trabalho_oo.entities.Aluno;
 import com.trabalho_oo.entities.Turma;
-import com.trabalho_oo.entities.Disciplinas.Disciplina;
+//import com.trabalho_oo.entities.Disciplinas.Disciplina;
 import com.trabalho_oo.entities.Disciplinas.DisciplinaObrigatoria;
 
 public class ValidadorLogicoANDTest {
@@ -22,8 +22,8 @@ public class ValidadorLogicoANDTest {
     private List<Turma> gradeFutura;
 
     private DisciplinaObrigatoria calcNum;
-    private DisciplinaObrigatoria calcII;
-    private DisciplinaObrigatoria algoritmos;
+    // private DisciplinaObrigatoria calcII;
+    // private DisciplinaObrigatoria algoritmos;
     private ArrayList<ValidadorPreRequisito> vazia = new ArrayList<>();
     private List<String> preRequisitos;
 
@@ -31,8 +31,8 @@ public class ValidadorLogicoANDTest {
     void setUp() {
         aluno = new Aluno("Aluno de Teste", "202501001", 70, historico, gradeFutura);
         calcNum = new DisciplinaObrigatoria("Cálculo numérico", "DCC008" ,4, vazia, null);
-        calcII = new DisciplinaObrigatoria("Calculo II", "MAT002",  4, vazia, null);
-        algoritmos = new DisciplinaObrigatoria("Algoritmos I", "DCC001",  4, vazia, null);
+        // calcII = new DisciplinaObrigatoria("Calculo II", "MAT002",  4, vazia, null);
+        // algoritmos = new DisciplinaObrigatoria("Algoritmos I", "DCC001",  4, vazia, null);
         preRequisitos = List.of("Calculo II", "Algoritmos I");
     }
     
