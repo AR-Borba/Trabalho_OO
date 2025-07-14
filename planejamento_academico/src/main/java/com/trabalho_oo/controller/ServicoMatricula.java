@@ -6,6 +6,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import com.trabalho_oo.Models.RelatorioMatricula;
 import com.trabalho_oo.Validadores.*;
 import com.trabalho_oo.entities.*;
 import com.trabalho_oo.entities.Disciplinas.*;
@@ -13,7 +14,7 @@ import com.trabalho_oo.exceptions.*;
 
 public class ServicoMatricula {
 
-    public void realizarMatricula(Aluno aluno) {
+    public RelatorioMatricula realizarMatricula(Aluno aluno) {
         List<Turma> turmasDesejadas = new ArrayList<>(aluno.getGradeFutura());
         List<Turma> turmasConfirmadas = new ArrayList<>();
         Map<String, String> disciplinasRejeitadas = new HashMap<>();
@@ -23,14 +24,11 @@ public class ServicoMatricula {
             try {
                 // Validações
                 validarVagas(turma);
-                if (!turma.getDisciplina().podeSerCursadoPor(aluno)) {
-                    throw new PreRequisitoNaoCumpridoException();
-                }
+                validarPreRequisitos(aluno);
                 validarCoRequisitos(aluno, turma.getDisciplina().getCoRequisitos());
                 validarCargaHoraria(aluno, turma.getDisciplina(), cargaHorariaAtual);
                 verificarConflito(turma, turmasConfirmadas);
                 
-                // Se tudo deu certo, confirma a matrícula
                 turmasConfirmadas.add(turma);
                 cargaHorariaAtual += turma.getDisciplina().getCargaHorariaSemanal();
                 
@@ -39,35 +37,19 @@ public class ServicoMatricula {
             }
         }
 
-        aluno.setPlanejamento(turmasConfirmadas);
-        // Chama o novo método para imprimir o relatório formatado
-        imprimirRelatorio(aluno, turmasConfirmadas, disciplinasRejeitadas);
+        return new RelatorioMatricula(turmasConfirmadas, disciplinasRejeitadas);
     }
 
-     private void imprimirRelatorio(Aluno aluno, List<Turma> confirmadas, Map<String, String> rejeitadas) {
-        System.out.println("\n=======================================================");
-        System.out.println("### Relatório de Matrícula: " + aluno.getNomeAluno() + " ###");
-        System.out.println("=======================================================");
+    public void avancarPeriodo(Aluno aluno, RelatorioMatricula relatorio) {
+        final double NOTA_APROVACAO_PADRAO = 70.0;
 
-        System.out.println("\n--- DISCIPLINAS MATRICULADAS ---");
-        if (confirmadas.isEmpty()) {
-            System.out.println("Nenhuma disciplina matriculada.");
-        } else {
-            for (Turma turma : confirmadas) {
-                // Formato detalhado para as disciplinas aceitas
-                System.out.println("  - " + turma.getDisciplina().getNomeDisciplina() + " (Turma " + turma.getId() + ")");
+        List<Turma> turmasCursadas = relatorio.getTurmasConfirmadas();
+        if(turmasCursadas != null && !turmasCursadas.isEmpty()) {
+            for(Turma turma : turmasCursadas) {
+                String disciplina = turma.getDisciplina().getCodigo();
+                aluno.adicionarAoHistorico(disciplina, NOTA_APROVACAO_PADRAO);
             }
         }
-        
-        System.out.println("\n--- DISCIPLINAS REJEITADAS ---");
-        if (rejeitadas.isEmpty()) {
-            System.out.println("Nenhuma disciplina rejeitada.");
-        } else {
-            // Mantém o formato detalhado para as disciplinas rejeitadas
-            rejeitadas.forEach((disciplina, motivo) -> 
-                System.out.println("  - " + disciplina + " | Motivo: " + motivo));
-        }
-        System.out.println("=======================================================\n");
     }
 
     private void validarPreRequisitos(Aluno aluno) throws PreRequisitoNaoCumpridoException{

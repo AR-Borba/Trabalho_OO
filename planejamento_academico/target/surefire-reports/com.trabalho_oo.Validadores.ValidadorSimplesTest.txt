@@ -1,26 +1,4 @@
 -------------------------------------------------------------------------------
 Test set: com.trabalho_oo.Validadores.ValidadorSimplesTest
 -------------------------------------------------------------------------------
-<<<<<<< HEAD
-Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.029 s -- in com.trabalho_oo.Validadores.ValidadorSimplesTest
-=======
-<<<<<<< HEAD
-Tests run: 3, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 0.017 s <<< FAILURE! -- in com.trabalho_oo.Validadores.ValidadorSimplesTest
-com.trabalho_oo.Validadores.ValidadorSimplesTest.Retorna_True_Para_PreRequisito_Aprovado -- Time elapsed: 0.009 s <<< FAILURE!
-=======
-Tests run: 3, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 0.070 s <<< FAILURE! -- in com.trabalho_oo.Validadores.ValidadorSimplesTest
-com.trabalho_oo.Validadores.ValidadorSimplesTest.Retorna_True_Para_PreRequisito_Aprovado -- Time elapsed: 0.023 s <<< FAILURE!
->>>>>>> cae5ed49431aeb006908a3ea91e8a12ade9ddc9c
-org.opentest4j.AssertionFailedError: expected: <true> but was: <false>
-	at org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
-	at org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:132)
-	at org.junit.jupiter.api.AssertTrue.failNotTrue(AssertTrue.java:63)
-	at org.junit.jupiter.api.AssertTrue.assertTrue(AssertTrue.java:36)
-	at org.junit.jupiter.api.AssertTrue.assertTrue(AssertTrue.java:31)
-	at org.junit.jupiter.api.Assertions.assertTrue(Assertions.java:183)
-	at com.trabalho_oo.Validadores.ValidadorSimplesTest.Retorna_True_Para_PreRequisito_Aprovado(ValidadorSimplesTest.java:42)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
-	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
-	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
-
->>>>>>> 7db4b7010e4842507f4a586b00b835f1dda3a6b3
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.034 s -- in com.trabalho_oo.Validadores.ValidadorSimplesTest

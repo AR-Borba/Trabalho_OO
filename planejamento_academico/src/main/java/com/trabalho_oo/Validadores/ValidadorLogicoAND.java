@@ -1,5 +1,6 @@
 package com.trabalho_oo.Validadores;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import com.trabalho_oo.entities.Aluno;
@@ -10,6 +11,10 @@ public class ValidadorLogicoAND implements ValidadorPreRequisito {
 
     public ValidadorLogicoAND(List<String> preRequisitos) {
         this.preRequisitos = preRequisitos;
+    }
+
+    public ValidadorLogicoAND() {
+        this.preRequisitos = new ArrayList<>();
     }
 
     @Override
