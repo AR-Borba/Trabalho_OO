@@ -1,8 +1,13 @@
 -------------------------------------------------------------------------------
 Test set: com.trabalho_oo.Validadores.ValidadorLogicoORTest
 -------------------------------------------------------------------------------
+<<<<<<< HEAD
 Tests run: 4, Failures: 2, Errors: 0, Skipped: 0, Time elapsed: 0.024 s <<< FAILURE! -- in com.trabalho_oo.Validadores.ValidadorLogicoORTest
 com.trabalho_oo.Validadores.ValidadorLogicoORTest.Retorna_True_Para_PreRequisito_Aprovado1 -- Time elapsed: 0.009 s <<< FAILURE!
+=======
+Tests run: 4, Failures: 2, Errors: 0, Skipped: 0, Time elapsed: 0.110 s <<< FAILURE! -- in com.trabalho_oo.Validadores.ValidadorLogicoORTest
+com.trabalho_oo.Validadores.ValidadorLogicoORTest.Retorna_True_Para_PreRequisito_Aprovado1 -- Time elapsed: 0.053 s <<< FAILURE!
+>>>>>>> cae5ed49431aeb006908a3ea91e8a12ade9ddc9c
 org.opentest4j.AssertionFailedError: expected: <true> but was: <false>
 	at org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
 	at org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:132)
@@ -15,7 +20,11 @@ org.opentest4j.AssertionFailedError: expected: <true> but was: <false>
 	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
 	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
 
+<<<<<<< HEAD
 com.trabalho_oo.Validadores.ValidadorLogicoORTest.Retorna_True_Para_PreRequisito_Aprovado2 -- Time elapsed: 0.005 s <<< FAILURE!
+=======
+com.trabalho_oo.Validadores.ValidadorLogicoORTest.Retorna_True_Para_PreRequisito_Aprovado2 -- Time elapsed: 0.004 s <<< FAILURE!
+>>>>>>> cae5ed49431aeb006908a3ea91e8a12ade9ddc9c
 org.opentest4j.AssertionFailedError: expected: <true> but was: <false>
 	at org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
 	at org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:132)
