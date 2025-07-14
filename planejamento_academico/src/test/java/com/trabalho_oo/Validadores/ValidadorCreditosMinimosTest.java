@@ -28,7 +28,6 @@ public class ValidadorCreditosMinimosTest {
     void setUp() {
         aluno = new Aluno("Aluno de Teste", "202501001", 70, historico, gradeFutura);
         TCC = new DisciplinaObrigatoria("Trabalho de conclusão de curso", "DCC204",  4, vazia, null);
-        
     }
 
     @Test
@@ -45,7 +44,7 @@ public class ValidadorCreditosMinimosTest {
     @Test
     void Retorna_False_Para_Creditos_Insuficientes() {
         aluno.adicionarAoHistorico("Cálculo 1", 70.0);
-        aluno.adicionarAoHistorico("Algoritmos", 70.0);
+        aluno.adicionarAoHistorico("Algoritmos", 40);
         ValidadorCreditosMinimos validador = new ValidadorCreditosMinimos(20);
 
         boolean resultado = validador.validar(aluno, TCC);
