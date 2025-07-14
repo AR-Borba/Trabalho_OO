@@ -10,7 +10,8 @@ public class CatalogoDisciplinas {
     private static final Map<String, Disciplina> catalogo = new HashMap<>();
 
     public static void carregar(List<Disciplina> disciplinas) {
-        if (disciplinas == null) return;
+        if (disciplinas == null) 
+            return;
         
         for (Disciplina d : disciplinas) {
             catalogo.put(d.getCodigo(), d);
