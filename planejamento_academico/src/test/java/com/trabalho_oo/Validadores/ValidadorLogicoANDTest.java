@@ -41,9 +41,6 @@ public class ValidadorLogicoANDTest {
         aluno.adicionarAoHistorico("Calculo II", 70.0);
         aluno.adicionarAoHistorico("Algoritmos I", 70.0);
 
-        ValidadorSimples validadorCalcII = new ValidadorSimples(calcII);
-        ValidadorSimples validadorAlgoritmos = new ValidadorSimples(algoritmos);
-
         ValidadorLogicoAND validador = new ValidadorLogicoAND(preRequisitos);
 
         boolean resultado = validador.validar(aluno, calcNum);
@@ -55,9 +52,6 @@ public class ValidadorLogicoANDTest {
     void Retorna_FalsePara_PreRequisito_Reprovado2() {
         aluno.adicionarAoHistorico("Calculo II", 70.0);
         aluno.adicionarAoHistorico("Algoritmos I", 46.0);
-       
-        ValidadorSimples validadorCalcII = new ValidadorSimples(calcII);
-        ValidadorSimples validadorAlgoritmos = new ValidadorSimples(algoritmos);
 
         ValidadorLogicoAND validador = new ValidadorLogicoAND(preRequisitos);
 
