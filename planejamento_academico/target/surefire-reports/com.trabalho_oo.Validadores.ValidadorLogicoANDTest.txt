@@ -1,4 +1,8 @@
 -------------------------------------------------------------------------------
 Test set: com.trabalho_oo.Validadores.ValidadorLogicoANDTest
 -------------------------------------------------------------------------------
+<<<<<<< HEAD
+Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.008 s -- in com.trabalho_oo.Validadores.ValidadorLogicoANDTest
+=======
 Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.022 s -- in com.trabalho_oo.Validadores.ValidadorLogicoANDTest
+>>>>>>> 2fa07609d6eba97b7298635f6e849f39f8513f98

@@ -17,7 +17,6 @@ public class AlunoPersistence implements Persistence<Aluno> {
     private static final String PATH = DIRECTORY + File.separator + "alunos.json";
     private final Gson gson = GsonFactory.getCustomGson();
 
-
     @Override
     public void save(List<Aluno> itens) {
         String json = gson.toJson(itens);
@@ -44,7 +43,6 @@ public class AlunoPersistence implements Persistence<Aluno> {
                 if(itens == null)
                     itens = new ArrayList<>();
         }
-
         return itens;
     }
     

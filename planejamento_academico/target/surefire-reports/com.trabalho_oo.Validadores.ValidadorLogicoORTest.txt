@@ -1,4 +1,8 @@
 -------------------------------------------------------------------------------
 Test set: com.trabalho_oo.Validadores.ValidadorLogicoORTest
 -------------------------------------------------------------------------------
+<<<<<<< HEAD
+Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.012 s -- in com.trabalho_oo.Validadores.ValidadorLogicoORTest
+=======
 Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.082 s -- in com.trabalho_oo.Validadores.ValidadorLogicoORTest
+>>>>>>> 2fa07609d6eba97b7298635f6e849f39f8513f98

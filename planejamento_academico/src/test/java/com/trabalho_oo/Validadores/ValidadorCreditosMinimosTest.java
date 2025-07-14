@@ -13,7 +13,6 @@ import org.junit.jupiter.api.Test;
 
 import com.trabalho_oo.entities.Aluno;
 import com.trabalho_oo.entities.Turma;
-//import com.trabalho_oo.entities.Disciplinas.Disciplina;
 import com.trabalho_oo.entities.Disciplinas.DisciplinaObrigatoria;
 
 public class ValidadorCreditosMinimosTest {
@@ -22,16 +21,12 @@ public class ValidadorCreditosMinimosTest {
     private Map<String, Double> historico = new HashMap<>();
     private List<Turma> gradeFutura;
 
-    // private DisciplinaObrigatoria calculo1;
-    // private DisciplinaObrigatoria algoritmos;
     private DisciplinaObrigatoria TCC;
     private ArrayList<ValidadorPreRequisito> vazia = new ArrayList<>();
     
     @BeforeEach
     void setUp() {
         aluno = new Aluno("Aluno de Teste", "202501001", 70, historico, gradeFutura);
-        // calculo1 = new DisciplinaObrigatoria("Cálculo 1", "MAT001" ,4, vazia, null);
-        // algoritmos = new DisciplinaObrigatoria("Algoritmos", "DCC001" ,4, vazia, null);
         TCC = new DisciplinaObrigatoria("Trabalho de conclusão de curso", "DCC204",  4, vazia, null);
         
     }
